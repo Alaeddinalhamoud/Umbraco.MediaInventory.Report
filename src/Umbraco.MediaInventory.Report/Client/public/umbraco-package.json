@@ -1,0 +1,14 @@
+{
+  "id": "Umbraco.MediaInventory.Report",
+  "name": "Umbraco.MediaInventory.Report",
+  "version": "0.0.0",
+  "allowTelemetry": true,
+  "extensions": [
+    {
+      "name": "Umbraco Media Inventory Report Bundle",
+      "alias": "Umbraco.MediaInventory.Report.Bundle",
+      "type": "bundle",
+      "js": "/App_Plugins/UmbracoMediaInventoryReport/umbraco-media-inventory-report.js"
+    }
+  ]
+}

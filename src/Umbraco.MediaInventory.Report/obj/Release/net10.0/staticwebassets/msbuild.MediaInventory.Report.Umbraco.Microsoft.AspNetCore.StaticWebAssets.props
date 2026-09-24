@@ -1,0 +1,204 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\client.gen-CBAFThW6.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MediaInventory.Report.Umbraco</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>App_Plugins/UmbracoMediaInventoryReport/client.gen-CBAFThW6.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>7btkzwb2z6</Fingerprint>
+      <Integrity>Y4SBpW+O6XwYWc/jrCsaFVCC8cZoBlfxNk/iliKQ00M=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <FileLength>14949</FileLength>
+      <LastWriteTime>Thu, 24 Sep 2026 11:49:27 GMT</LastWriteTime>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\client.gen-CBAFThW6.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\client.gen-CBAFThW6.js.map'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MediaInventory.Report.Umbraco</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>App_Plugins/UmbracoMediaInventoryReport/client.gen-CBAFThW6.js.map</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>9fwpw56flq</Fingerprint>
+      <Integrity>mxtXsxah3d6CMYyt7sCJhJBowQ5XI32W8Mpbm06uWzU=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <FileLength>57032</FileLength>
+      <LastWriteTime>Thu, 24 Sep 2026 11:49:27 GMT</LastWriteTime>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\client.gen-CBAFThW6.js.map'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\entrypoint-B0GRwE2y.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MediaInventory.Report.Umbraco</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>App_Plugins/UmbracoMediaInventoryReport/entrypoint-B0GRwE2y.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>drh1rfju5y</Fingerprint>
+      <Integrity>KVcb78SB0e9tUNrAccAmFwrtVOcSbfRZn2h3wvQaQxE=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <FileLength>309</FileLength>
+      <LastWriteTime>Thu, 24 Sep 2026 11:49:27 GMT</LastWriteTime>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\entrypoint-B0GRwE2y.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\entrypoint-B0GRwE2y.js.map'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MediaInventory.Report.Umbraco</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>App_Plugins/UmbracoMediaInventoryReport/entrypoint-B0GRwE2y.js.map</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>y4en2sfvb1</Fingerprint>
+      <Integrity>UokIBk0XLkE37puB517NbFtd85aKrdhRhylc8VPO7EI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <FileLength>995</FileLength>
+      <LastWriteTime>Thu, 24 Sep 2026 11:49:27 GMT</LastWriteTime>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\entrypoint-B0GRwE2y.js.map'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-page-BN6G5ofG.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MediaInventory.Report.Umbraco</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>App_Plugins/UmbracoMediaInventoryReport/media-inventory-page-BN6G5ofG.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>v7xuub7170</Fingerprint>
+      <Integrity>q536R6pe1rdKPM82JqStqc+rqciA1949Lsw3P2QqS0g=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <FileLength>36996</FileLength>
+      <LastWriteTime>Thu, 24 Sep 2026 11:49:27 GMT</LastWriteTime>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-page-BN6G5ofG.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-page-BN6G5ofG.js.map'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MediaInventory.Report.Umbraco</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>App_Plugins/UmbracoMediaInventoryReport/media-inventory-page-BN6G5ofG.js.map</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>tesdfkwwzm</Fingerprint>
+      <Integrity>6+/LvWxGmWzpfIsVZ3Evbbja+douwWx4EvOfq4YZJiw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <FileLength>57961</FileLength>
+      <LastWriteTime>Thu, 24 Sep 2026 11:49:27 GMT</LastWriteTime>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-page-BN6G5ofG.js.map'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-report-icon.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MediaInventory.Report.Umbraco</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>App_Plugins/UmbracoMediaInventoryReport/media-inventory-report-icon.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>xl4kpulnt8</Fingerprint>
+      <Integrity>q6qQ1yym0GC/iogaUe4y5y/3KjbVyONk5SrE7cKkz0c=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <FileLength>559999</FileLength>
+      <LastWriteTime>Thu, 24 Sep 2026 11:58:39 GMT</LastWriteTime>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-report-icon.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-media-inventory-report.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MediaInventory.Report.Umbraco</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>App_Plugins/UmbracoMediaInventoryReport/umbraco-media-inventory-report.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ftg40deoqc</Fingerprint>
+      <Integrity>3Z2PgMnsGIH0WN5jWl7W1TrXRNEl7RtZBI3lzDO1lFA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <FileLength>732</FileLength>
+      <LastWriteTime>Thu, 24 Sep 2026 11:49:27 GMT</LastWriteTime>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-media-inventory-report.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-media-inventory-report.js.map'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MediaInventory.Report.Umbraco</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>App_Plugins/UmbracoMediaInventoryReport/umbraco-media-inventory-report.js.map</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>u3l5e4usko</Fingerprint>
+      <Integrity>5scDwIjxyAbtJ9xO7lAsTIq6ZIL2UMUkw+MNGfH7K0k=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <FileLength>1843</FileLength>
+      <LastWriteTime>Thu, 24 Sep 2026 11:49:27 GMT</LastWriteTime>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-media-inventory-report.js.map'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-package.json'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MediaInventory.Report.Umbraco</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>/</BasePath>
+      <RelativePath>App_Plugins/UmbracoMediaInventoryReport/umbraco-package.json</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>jq2eo45agj</Fingerprint>
+      <Integrity>pYKeMg8IDijpkYD5UaK6OFBrIxnlkc8qzKaE/9PXO5Y=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <FileLength>405</FileLength>
+      <LastWriteTime>Wed, 23 Sep 2026 14:31:06 GMT</LastWriteTime>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-package.json'))</OriginalItemSpec>
+    </StaticWebAsset>
+  </ItemGroup>
+</Project>

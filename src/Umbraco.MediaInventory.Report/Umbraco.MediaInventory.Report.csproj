@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>MediaInventory.Report.Umbraco</PackageId>
+		<Product>Umbraco.MediaInventory.Report</Product>
+		<Title>Umbraco Media Inventory Report</Title>
+		<Version>1.0.0</Version>
+		<Authors>Alaeddin Alhamoud</Authors>
+		<Copyright>Copyright © 2026 Alaeddin Alhamoud</Copyright>
+		<Description>Adds a Media-section dashboard for auditing Umbraco media assets, including usage references, storage insights, CSV export, background refresh, and safe recycle-bin cleanup.</Description>
+		<PackageReleaseNotes>Initial release. Adds a Media Inventory dashboard for Umbraco 17 with searchable and filterable media reporting, tracked-reference details, storage and usage summaries, CSV export, background refresh, and recycle-bin cleanup for unused assets.</PackageReleaseNotes>
+		<PackageTags>umbraco;umbraco17;backoffice;editor</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/Alaeddinalhamoud/Umbraco.MediaInventory.Report</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Alaeddinalhamoud/Umbraco.MediaInventory.Report</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>Umbraco.MediaInventory.Report/icon.png</PackageIcon>
+		<IsPackable>true</IsPackable>
+	</PropertyGroup>
+
+
+	<!-- Central package management - no versions -->
+	<ItemGroup>
+		<PackageReference Include="Umbraco.Cms.Api.Common" />
+		<PackageReference Include="Umbraco.Cms.Api.Management" />
+		<PackageReference Include="Umbraco.Cms.Web.Common" />
+		<PackageReference Include="Umbraco.Cms.Web.Website" />
+
+		<!--
+      Microsoft.AspNetCore.OpenApi is available transitively from the Umbraco packages above, but we
+      take a direct dependency here because extension code directly uses types from this package
+      (IOpenApiDocumentTransformer, IOpenApiOperationTransformer, etc.) and from Microsoft.OpenApi
+      (OpenApiInfo). Without a direct reference, this project's Microsoft.AspNetCore.OpenApi version
+      is determined solely by NuGet's transitive resolution, which can resolve to a different version
+      than the host site project (e.g. a newer patch). When that happens, the different
+      Microsoft.OpenApi versions can conflict at runtime, causing custom OpenAPI documents registered
+      by the extension to fail to appear.
+      Most other transitive dependencies don't have this problem because extension code doesn't use
+      their types directly - only Microsoft.AspNetCore.OpenApi / Microsoft.OpenApi types are
+      referenced in the composer.
+    -->
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="\" Link="README.md" />
+		<None Include="icon.png" Pack="true" PackagePath="Umbraco.MediaInventory.Report\" />
+
+		<!-- Don't include the client folder as part of packaging nuget build -->
+		<Content Remove="Client\**" />
+		<Content Include="Client\package-lock.json" />
+		<Content Include="Client\package.json" />
+		<Content Include="Client\tsconfig.json" />
+
+		<!-- However make the Umbraco-package.json included for dotnet pack or nuget package and visible to the solution -->
+		<None Include="Client\public\umbraco-package.json" Pack="false" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="wwwroot\" />
+	</ItemGroup>
+
+</Project>

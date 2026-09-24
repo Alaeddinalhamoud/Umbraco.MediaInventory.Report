@@ -1,0 +1,124 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/client.gen-CBAFThW6.7btkzwb2z6.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\client.gen-CBAFThW6.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"7btkzwb2z6"},{"Name":"integrity","Value":"sha256-Y4SBpW\u002BO6XwYWc/jrCsaFVCC8cZoBlfxNk/iliKQ00M="},{"Name":"label","Value":"App_Plugins/UmbracoMediaInventoryReport/client.gen-CBAFThW6.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"14949"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Y4SBpW\u002BO6XwYWc/jrCsaFVCC8cZoBlfxNk/iliKQ00M=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/client.gen-CBAFThW6.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\client.gen-CBAFThW6.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Y4SBpW\u002BO6XwYWc/jrCsaFVCC8cZoBlfxNk/iliKQ00M="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"14949"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Y4SBpW\u002BO6XwYWc/jrCsaFVCC8cZoBlfxNk/iliKQ00M=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/client.gen-CBAFThW6.js.9fwpw56flq.map">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\client.gen-CBAFThW6.js.map'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"9fwpw56flq"},{"Name":"integrity","Value":"sha256-mxtXsxah3d6CMYyt7sCJhJBowQ5XI32W8Mpbm06uWzU="},{"Name":"label","Value":"App_Plugins/UmbracoMediaInventoryReport/client.gen-CBAFThW6.js.map"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"57032"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022mxtXsxah3d6CMYyt7sCJhJBowQ5XI32W8Mpbm06uWzU=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/client.gen-CBAFThW6.js.map">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\client.gen-CBAFThW6.js.map'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-mxtXsxah3d6CMYyt7sCJhJBowQ5XI32W8Mpbm06uWzU="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"57032"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022mxtXsxah3d6CMYyt7sCJhJBowQ5XI32W8Mpbm06uWzU=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/entrypoint-B0GRwE2y.drh1rfju5y.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\entrypoint-B0GRwE2y.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"drh1rfju5y"},{"Name":"integrity","Value":"sha256-KVcb78SB0e9tUNrAccAmFwrtVOcSbfRZn2h3wvQaQxE="},{"Name":"label","Value":"App_Plugins/UmbracoMediaInventoryReport/entrypoint-B0GRwE2y.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"309"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022KVcb78SB0e9tUNrAccAmFwrtVOcSbfRZn2h3wvQaQxE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/entrypoint-B0GRwE2y.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\entrypoint-B0GRwE2y.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-KVcb78SB0e9tUNrAccAmFwrtVOcSbfRZn2h3wvQaQxE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"309"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022KVcb78SB0e9tUNrAccAmFwrtVOcSbfRZn2h3wvQaQxE=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/entrypoint-B0GRwE2y.js.map">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\entrypoint-B0GRwE2y.js.map'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-UokIBk0XLkE37puB517NbFtd85aKrdhRhylc8VPO7EI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"995"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022UokIBk0XLkE37puB517NbFtd85aKrdhRhylc8VPO7EI=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/entrypoint-B0GRwE2y.js.y4en2sfvb1.map">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\entrypoint-B0GRwE2y.js.map'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"y4en2sfvb1"},{"Name":"integrity","Value":"sha256-UokIBk0XLkE37puB517NbFtd85aKrdhRhylc8VPO7EI="},{"Name":"label","Value":"App_Plugins/UmbracoMediaInventoryReport/entrypoint-B0GRwE2y.js.map"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"995"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022UokIBk0XLkE37puB517NbFtd85aKrdhRhylc8VPO7EI=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/media-inventory-page-BN6G5ofG.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-page-BN6G5ofG.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-q536R6pe1rdKPM82JqStqc\u002BrqciA1949Lsw3P2QqS0g="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"36996"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022q536R6pe1rdKPM82JqStqc\u002BrqciA1949Lsw3P2QqS0g=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/media-inventory-page-BN6G5ofG.js.map">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-page-BN6G5ofG.js.map'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-6\u002B/LvWxGmWzpfIsVZ3Evbbja\u002BdouwWx4EvOfq4YZJiw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"57961"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u00226\u002B/LvWxGmWzpfIsVZ3Evbbja\u002BdouwWx4EvOfq4YZJiw=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/media-inventory-page-BN6G5ofG.js.tesdfkwwzm.map">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-page-BN6G5ofG.js.map'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"tesdfkwwzm"},{"Name":"integrity","Value":"sha256-6\u002B/LvWxGmWzpfIsVZ3Evbbja\u002BdouwWx4EvOfq4YZJiw="},{"Name":"label","Value":"App_Plugins/UmbracoMediaInventoryReport/media-inventory-page-BN6G5ofG.js.map"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"57961"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u00226\u002B/LvWxGmWzpfIsVZ3Evbbja\u002BdouwWx4EvOfq4YZJiw=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/media-inventory-page-BN6G5ofG.v7xuub7170.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-page-BN6G5ofG.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"v7xuub7170"},{"Name":"integrity","Value":"sha256-q536R6pe1rdKPM82JqStqc\u002BrqciA1949Lsw3P2QqS0g="},{"Name":"label","Value":"App_Plugins/UmbracoMediaInventoryReport/media-inventory-page-BN6G5ofG.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"36996"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022q536R6pe1rdKPM82JqStqc\u002BrqciA1949Lsw3P2QqS0g=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/media-inventory-report-icon.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-report-icon.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-q6qQ1yym0GC/iogaUe4y5y/3KjbVyONk5SrE7cKkz0c="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"559999"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022q6qQ1yym0GC/iogaUe4y5y/3KjbVyONk5SrE7cKkz0c=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:58:39 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/media-inventory-report-icon.xl4kpulnt8.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-report-icon.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xl4kpulnt8"},{"Name":"integrity","Value":"sha256-q6qQ1yym0GC/iogaUe4y5y/3KjbVyONk5SrE7cKkz0c="},{"Name":"label","Value":"App_Plugins/UmbracoMediaInventoryReport/media-inventory-report-icon.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"559999"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022q6qQ1yym0GC/iogaUe4y5y/3KjbVyONk5SrE7cKkz0c=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:58:39 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/umbraco-media-inventory-report.ftg40deoqc.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-media-inventory-report.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ftg40deoqc"},{"Name":"integrity","Value":"sha256-3Z2PgMnsGIH0WN5jWl7W1TrXRNEl7RtZBI3lzDO1lFA="},{"Name":"label","Value":"App_Plugins/UmbracoMediaInventoryReport/umbraco-media-inventory-report.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"732"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00223Z2PgMnsGIH0WN5jWl7W1TrXRNEl7RtZBI3lzDO1lFA=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/umbraco-media-inventory-report.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-media-inventory-report.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-3Z2PgMnsGIH0WN5jWl7W1TrXRNEl7RtZBI3lzDO1lFA="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"732"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00223Z2PgMnsGIH0WN5jWl7W1TrXRNEl7RtZBI3lzDO1lFA=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/umbraco-media-inventory-report.js.map">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-media-inventory-report.js.map'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5scDwIjxyAbtJ9xO7lAsTIq6ZIL2UMUkw\u002BMNGfH7K0k="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1843"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u00225scDwIjxyAbtJ9xO7lAsTIq6ZIL2UMUkw\u002BMNGfH7K0k=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/umbraco-media-inventory-report.js.u3l5e4usko.map">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-media-inventory-report.js.map'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"u3l5e4usko"},{"Name":"integrity","Value":"sha256-5scDwIjxyAbtJ9xO7lAsTIq6ZIL2UMUkw\u002BMNGfH7K0k="},{"Name":"label","Value":"App_Plugins/UmbracoMediaInventoryReport/umbraco-media-inventory-report.js.map"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1843"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u00225scDwIjxyAbtJ9xO7lAsTIq6ZIL2UMUkw\u002BMNGfH7K0k=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Sep 2026 11:49:27 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/umbraco-package.jq2eo45agj.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-package.json'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"jq2eo45agj"},{"Name":"integrity","Value":"sha256-pYKeMg8IDijpkYD5UaK6OFBrIxnlkc8qzKaE/9PXO5Y="},{"Name":"label","Value":"App_Plugins/UmbracoMediaInventoryReport/umbraco-package.json"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"405"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022pYKeMg8IDijpkYD5UaK6OFBrIxnlkc8qzKaE/9PXO5Y=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Sep 2026 14:31:06 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="App_Plugins/UmbracoMediaInventoryReport/umbraco-package.json">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-package.json'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-pYKeMg8IDijpkYD5UaK6OFBrIxnlkc8qzKaE/9PXO5Y="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"405"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022pYKeMg8IDijpkYD5UaK6OFBrIxnlkc8qzKaE/9PXO5Y=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Sep 2026 14:31:06 GMT"},{"Name":"Vary","Value":"Accept-Encoding"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

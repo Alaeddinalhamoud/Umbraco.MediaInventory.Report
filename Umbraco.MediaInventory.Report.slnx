@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Umbraco.MediaInventory.Report/Umbraco.MediaInventory.Report.csproj" />
+  <Project Path="tests/Umbraco.MediaInventory.Report.Tests/Umbraco.MediaInventory.Report.Tests.csproj" />
+</Solution>

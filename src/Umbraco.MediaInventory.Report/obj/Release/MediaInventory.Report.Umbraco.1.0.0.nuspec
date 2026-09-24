@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MediaInventory.Report.Umbraco</id>
+    <version>1.0.0</version>
+    <title>Umbraco Media Inventory Report</title>
+    <authors>Alaeddin Alhamoud</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>Umbraco.MediaInventory.Report/icon.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/Alaeddinalhamoud/Umbraco.MediaInventory.Report</projectUrl>
+    <description>Adds a Media-section dashboard for auditing Umbraco media assets, including usage references, storage insights, CSV export, background refresh, and safe recycle-bin cleanup.</description>
+    <releaseNotes>Initial release. Adds a Media Inventory dashboard for Umbraco 17 with searchable and filterable media reporting, tracked-reference details, storage and usage summaries, CSV export, background refresh, and recycle-bin cleanup for unused assets.</releaseNotes>
+    <copyright>Copyright © 2026 Alaeddin Alhamoud</copyright>
+    <tags>umbraco umbraco17 backoffice editor</tags>
+    <repository type="git" url="https://github.com/Alaeddinalhamoud/Umbraco.MediaInventory.Report" commit="a92016458ae31097b753833e5d253d6d5eb2043f" />
+    <dependencies>
+      <group targetFramework="net10.0">
+        <dependency id="Microsoft.AspNetCore.OpenApi" version="10.0.12" exclude="Build,Analyzers" />
+        <dependency id="Umbraco.Cms.Api.Common" version="17.7.0" exclude="Build,Analyzers" />
+        <dependency id="Umbraco.Cms.Api.Management" version="17.7.0" exclude="Build,Analyzers" />
+        <dependency id="Umbraco.Cms.Web.Common" version="17.7.0" exclude="Build,Analyzers" />
+        <dependency id="Umbraco.Cms.Web.Website" version="17.7.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <contentFiles>
+      <files include="any/net10.0/Client/package-lock.json" buildAction="Content" />
+      <files include="any/net10.0/Client/package.json" buildAction="Content" />
+      <files include="any/net10.0/Client/tsconfig.json" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\bin\Release\net10.0\Umbraco.MediaInventory.Report.dll" target="lib\net10.0\Umbraco.MediaInventory.Report.dll" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\Client\package-lock.json" target="content\Client\package-lock.json" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\Client\package-lock.json" target="contentFiles\any\net10.0\Client\package-lock.json" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\Client\package.json" target="content\Client\package.json" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\Client\package.json" target="contentFiles\any\net10.0\Client\package.json" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\Client\tsconfig.json" target="content\Client\tsconfig.json" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\Client\tsconfig.json" target="contentFiles\any\net10.0\Client\tsconfig.json" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\wwwroot\App_Plugins\UmbracoMediaInventoryReport\client.gen-CBAFThW6.js" target="staticwebassets\App_Plugins\UmbracoMediaInventoryReport\client.gen-CBAFThW6.js" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\wwwroot\App_Plugins\UmbracoMediaInventoryReport\client.gen-CBAFThW6.js.map" target="staticwebassets\App_Plugins\UmbracoMediaInventoryReport\client.gen-CBAFThW6.js.map" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\wwwroot\App_Plugins\UmbracoMediaInventoryReport\entrypoint-B0GRwE2y.js" target="staticwebassets\App_Plugins\UmbracoMediaInventoryReport\entrypoint-B0GRwE2y.js" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\wwwroot\App_Plugins\UmbracoMediaInventoryReport\entrypoint-B0GRwE2y.js.map" target="staticwebassets\App_Plugins\UmbracoMediaInventoryReport\entrypoint-B0GRwE2y.js.map" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\wwwroot\App_Plugins\UmbracoMediaInventoryReport\media-inventory-page-BN6G5ofG.js" target="staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-page-BN6G5ofG.js" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\wwwroot\App_Plugins\UmbracoMediaInventoryReport\media-inventory-page-BN6G5ofG.js.map" target="staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-page-BN6G5ofG.js.map" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\wwwroot\App_Plugins\UmbracoMediaInventoryReport\media-inventory-report-icon.png" target="staticwebassets\App_Plugins\UmbracoMediaInventoryReport\media-inventory-report-icon.png" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\wwwroot\App_Plugins\UmbracoMediaInventoryReport\umbraco-media-inventory-report.js" target="staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-media-inventory-report.js" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\wwwroot\App_Plugins\UmbracoMediaInventoryReport\umbraco-media-inventory-report.js.map" target="staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-media-inventory-report.js.map" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\wwwroot\App_Plugins\UmbracoMediaInventoryReport\umbraco-package.json" target="staticwebassets\App_Plugins\UmbracoMediaInventoryReport\umbraco-package.json" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\obj\Release\net10.0\staticwebassets\msbuild.MediaInventory.Report.Umbraco.Microsoft.AspNetCore.StaticWebAssetEndpoints.props" target="build\Microsoft.AspNetCore.StaticWebAssetEndpoints.props" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\obj\Release\net10.0\staticwebassets\msbuild.MediaInventory.Report.Umbraco.Microsoft.AspNetCore.StaticWebAssets.props" target="build\Microsoft.AspNetCore.StaticWebAssets.props" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\obj\Release\net10.0\staticwebassets\msbuild.build.MediaInventory.Report.Umbraco.props" target="build\MediaInventory.Report.Umbraco.props" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\obj\Release\net10.0\staticwebassets\msbuild.buildMultiTargeting.MediaInventory.Report.Umbraco.props" target="buildMultiTargeting\MediaInventory.Report.Umbraco.props" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\obj\Release\net10.0\staticwebassets\msbuild.buildTransitive.MediaInventory.Report.Umbraco.props" target="buildTransitive\MediaInventory.Report.Umbraco.props" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\README.md" target="\README.md" />
+    <file src="C:\Projects\mediareport\Umbraco.MediaInventory.Report\src\Umbraco.MediaInventory.Report\icon.png" target="Umbraco.MediaInventory.Report\icon.png" />
+  </files>
+</package>

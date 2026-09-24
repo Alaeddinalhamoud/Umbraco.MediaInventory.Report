@@ -1,0 +1,65 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\wwwroot\\App_Plugins\\UmbracoMediaInventoryReport\\client.gen-CBAFThW6.js",
+      "PackagePath": "staticwebassets\\App_Plugins\\UmbracoMediaInventoryReport\\client.gen-CBAFThW6.js"
+    },
+    {
+      "Id": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\wwwroot\\App_Plugins\\UmbracoMediaInventoryReport\\client.gen-CBAFThW6.js.map",
+      "PackagePath": "staticwebassets\\App_Plugins\\UmbracoMediaInventoryReport\\client.gen-CBAFThW6.js.map"
+    },
+    {
+      "Id": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\wwwroot\\App_Plugins\\UmbracoMediaInventoryReport\\entrypoint-B0GRwE2y.js",
+      "PackagePath": "staticwebassets\\App_Plugins\\UmbracoMediaInventoryReport\\entrypoint-B0GRwE2y.js"
+    },
+    {
+      "Id": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\wwwroot\\App_Plugins\\UmbracoMediaInventoryReport\\entrypoint-B0GRwE2y.js.map",
+      "PackagePath": "staticwebassets\\App_Plugins\\UmbracoMediaInventoryReport\\entrypoint-B0GRwE2y.js.map"
+    },
+    {
+      "Id": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\wwwroot\\App_Plugins\\UmbracoMediaInventoryReport\\media-inventory-page-BN6G5ofG.js",
+      "PackagePath": "staticwebassets\\App_Plugins\\UmbracoMediaInventoryReport\\media-inventory-page-BN6G5ofG.js"
+    },
+    {
+      "Id": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\wwwroot\\App_Plugins\\UmbracoMediaInventoryReport\\media-inventory-page-BN6G5ofG.js.map",
+      "PackagePath": "staticwebassets\\App_Plugins\\UmbracoMediaInventoryReport\\media-inventory-page-BN6G5ofG.js.map"
+    },
+    {
+      "Id": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\wwwroot\\App_Plugins\\UmbracoMediaInventoryReport\\media-inventory-report-icon.png",
+      "PackagePath": "staticwebassets\\App_Plugins\\UmbracoMediaInventoryReport\\media-inventory-report-icon.png"
+    },
+    {
+      "Id": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\wwwroot\\App_Plugins\\UmbracoMediaInventoryReport\\umbraco-media-inventory-report.js",
+      "PackagePath": "staticwebassets\\App_Plugins\\UmbracoMediaInventoryReport\\umbraco-media-inventory-report.js"
+    },
+    {
+      "Id": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\wwwroot\\App_Plugins\\UmbracoMediaInventoryReport\\umbraco-media-inventory-report.js.map",
+      "PackagePath": "staticwebassets\\App_Plugins\\UmbracoMediaInventoryReport\\umbraco-media-inventory-report.js.map"
+    },
+    {
+      "Id": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\wwwroot\\App_Plugins\\UmbracoMediaInventoryReport\\umbraco-package.json",
+      "PackagePath": "staticwebassets\\App_Plugins\\UmbracoMediaInventoryReport\\umbraco-package.json"
+    },
+    {
+      "Id": "obj\\Release\\net10.0\\staticwebassets\\msbuild.MediaInventory.Report.Umbraco.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Release\\net10.0\\staticwebassets\\msbuild.MediaInventory.Report.Umbraco.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net10.0\\staticwebassets\\msbuild.build.MediaInventory.Report.Umbraco.props",
+      "PackagePath": "build\\MediaInventory.Report.Umbraco.props"
+    },
+    {
+      "Id": "obj\\Release\\net10.0\\staticwebassets\\msbuild.buildMultiTargeting.MediaInventory.Report.Umbraco.props",
+      "PackagePath": "buildMultiTargeting\\MediaInventory.Report.Umbraco.props"
+    },
+    {
+      "Id": "obj\\Release\\net10.0\\staticwebassets\\msbuild.buildTransitive.MediaInventory.Report.Umbraco.props",
+      "PackagePath": "buildTransitive\\MediaInventory.Report.Umbraco.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
