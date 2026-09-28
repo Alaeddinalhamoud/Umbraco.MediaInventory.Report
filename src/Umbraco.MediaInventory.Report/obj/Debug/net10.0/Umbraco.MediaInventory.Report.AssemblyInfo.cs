@@ -18,7 +18,7 @@ using System.Reflection;
     " references, storage insights, CSV export, background refresh, and safe recycle-" +
     "bin cleanup.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a92016458ae31097b753833e5d253d6d5eb2043f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23c5943ab81465da7e2a63bcc7c98721675d4fcd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Umbraco.MediaInventory.Report")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Umbraco.MediaInventory.Report")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

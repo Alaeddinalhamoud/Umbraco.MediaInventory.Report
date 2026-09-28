@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj": {}
+    "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj": {
+    "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
+        "projectUniqueName": "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
         "projectName": "MediaInventory.Report.Umbraco",
-        "projectPath": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
+        "projectPath": "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
         "packagesPath": "C:\\Users\\AAlhamoud\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\obj\\",
+        "outputPath": "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\obj\\",
         "projectStyle": "PackageReference",
         "centralPackageVersionsManagementEnabled": true,
         "centralPackageFloatingVersionsEnabled": true,

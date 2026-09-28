@@ -1,7 +1,6 @@
 using System.Reflection;
 using System.Text;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Logging.Abstractions;
 using Umbraco.MediaInventory.Report.Models;
 using Umbraco.MediaInventory.Report.Services;
 using Xunit;
@@ -114,7 +113,7 @@ public sealed class MediaInventoryServiceTests
         snapshotType.GetProperty("Items")!.SetValue(snapshot, items);
         cache.Set("media-inventory:overview", snapshot);
 
-        return new MediaInventoryService(cache, null!, null!, NullLogger<MediaInventoryService>.Instance);
+        return new MediaInventoryService(cache, null!, null!, null!);
     }
 
     private static List<MediaInventoryItemDto> CreateItems() =>

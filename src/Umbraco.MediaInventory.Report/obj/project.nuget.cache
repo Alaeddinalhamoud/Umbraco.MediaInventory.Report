@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "egAov7B/KIA=",
+  "dgSpecHash": "6C6kIe+nuhE=",
   "success": true,
-  "projectFilePath": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
+  "projectFilePath": "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\AAlhamoud\\.nuget\\packages\\asp.versioning.abstractions\\8.1.0\\asp.versioning.abstractions.8.1.0.nupkg.sha512",
     "C:\\Users\\AAlhamoud\\.nuget\\packages\\asp.versioning.http\\8.1.1\\asp.versioning.http.8.1.1.nupkg.sha512",
@@ -164,9 +164,9 @@
       "code": "NU1507",
       "level": "Warning",
       "message": "There are 2 package sources defined in your configuration. When using central package management, map your package sources with package source mapping (https://aka.ms/nuget-package-source-mapping) or specify a single package source. The following sources are defined: nuget.org, 3C Digital",
-      "projectPath": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
+      "projectPath": "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Projects\\mediareport\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
+      "filePath": "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
       "targetGraphs": []
     }
   ]

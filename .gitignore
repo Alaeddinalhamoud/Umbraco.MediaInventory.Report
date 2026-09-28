@@ -31,5 +31,12 @@
 # Ignore the Models Builder models out of date flag
 **/App_Data/Models/ood.flag
 /.vs
-/Umbraco.MediaInventory.Report/.vs
-/Umbraco.MediaInventory.Report/Umbraco.MediaInventory.Report/obj
+/src/.vs
+/src/Umbraco.MediaInventory.Report/obj/
+/src/Umbraco.MediaInventory.Report/bin
+
+src/tests/Umbraco.MediaInventory.Report.Tests/bin/*
+/src/tests/Umbraco.MediaInventory.Report.Tests/bin/
+src/Umbraco.MediaInventory.Report/bin/Debug/net10.0/Umbraco.MediaInventory.Report.dll
+/src/Umbraco.MediaInventory.Report/bin
+/src/Umbraco.MediaInventory.Report/bin

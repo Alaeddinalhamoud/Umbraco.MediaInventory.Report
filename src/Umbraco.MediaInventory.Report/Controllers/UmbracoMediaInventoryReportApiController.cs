@@ -4,77 +4,61 @@ using Microsoft.AspNetCore.Mvc;
 using Umbraco.MediaInventory.Report.Models;
 using Umbraco.MediaInventory.Report.Services;
 
-namespace Umbraco.MediaInventory.Report.Controllers
+namespace Umbraco.MediaInventory.Report.Controllers;
+
+[ApiVersion("1.0")]
+[ApiExplorerSettings(GroupName = "Umbraco.MediaInventory.Report")]
+public class UmbracoMediaInventoryReportApiController(IMediaInventoryService mediaInventoryService) : UmbracoMediaInventoryReportApiControllerBase
 {
-    [ApiVersion("1.0")]
-    [ApiExplorerSettings(GroupName = "Umbraco.MediaInventory.Report")]
-    public class UmbracoMediaInventoryReportApiController : UmbracoMediaInventoryReportApiControllerBase
+
+    [HttpGet("ping")]
+    [ProducesResponseType<string>(StatusCodes.Status200OK)]
+    public string Ping() => "Pong";
+
+    [HttpGet("media-inventory")]
+    [ProducesResponseType(typeof(MediaInventoryPageResult), StatusCodes.Status200OK)]
+    public async Task<ActionResult<MediaInventoryPageResult>> GetInventory([FromQuery] MediaInventoryQuery query, CancellationToken cancellationToken)
     {
-        private readonly IMediaInventoryService _mediaInventoryService;
+        if (query.Page <= 0) query.Page = 1;
+        if (query.PageSize <= 0 || query.PageSize > 250) query.PageSize = 50;
 
-        public UmbracoMediaInventoryReportApiController(IMediaInventoryService mediaInventoryService)
-        {
-            _mediaInventoryService = mediaInventoryService;
-        }
+        var result = await mediaInventoryService.GetPageAsync(query, cancellationToken);
+        return Ok(result);
+    }
 
-        [HttpGet("ping")]
-        [ProducesResponseType<string>(StatusCodes.Status200OK)]
-        public string Ping() => "Pong";
+    [HttpGet("media-inventory/{mediaId:int}/references")]
+    [ProducesResponseType(typeof(IReadOnlyList<MediaInventoryReferenceDto>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<IReadOnlyList<MediaInventoryReferenceDto>>> GetReferences(int mediaId, CancellationToken cancellationToken) =>
+        Ok(await mediaInventoryService.GetReferencesAsync(mediaId, cancellationToken));
 
-        [HttpGet("media-inventory")]
-        [ProducesResponseType(typeof(MediaInventoryPageResult), StatusCodes.Status200OK)]
-        public async Task<ActionResult<MediaInventoryPageResult>> GetInventory([FromQuery] MediaInventoryQuery query, CancellationToken cancellationToken)
-        {
-            if (query.Page <= 0) query.Page = 1;
-            if (query.PageSize <= 0 || query.PageSize > 250) query.PageSize = 50;
+    [HttpPost("media-inventory/refresh")]
+    [ProducesResponseType(typeof(MediaInventoryRefreshStatus), StatusCodes.Status200OK)]
+    public async Task<ActionResult<MediaInventoryRefreshStatus>> RefreshInventory(CancellationToken cancellationToken) =>
+        Ok(await mediaInventoryService.TriggerRefreshAsync(cancellationToken));
 
-            var result = await _mediaInventoryService.GetPageAsync(query, cancellationToken);
-            return Ok(result);
-        }
+    [HttpGet("media-inventory/refresh/status")]
+    [ProducesResponseType(typeof(MediaInventoryRefreshStatus), StatusCodes.Status200OK)]
+    public async Task<ActionResult<MediaInventoryRefreshStatus>> GetRefreshStatus(CancellationToken cancellationToken) =>
+         Ok(await mediaInventoryService.GetRefreshStatusAsync(cancellationToken));
 
-        [HttpGet("media-inventory/{mediaId:int}/references")]
-        [ProducesResponseType(typeof(IReadOnlyList<MediaInventoryReferenceDto>), StatusCodes.Status200OK)]
-        public async Task<ActionResult<IReadOnlyList<MediaInventoryReferenceDto>>> GetReferences(int mediaId, CancellationToken cancellationToken)
-        {
-            var result = await _mediaInventoryService.GetReferencesAsync(mediaId, cancellationToken);
-            return Ok(result);
-        }
+    [HttpPost("media-inventory/export")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<IActionResult> ExportCsv([FromBody] MediaInventoryExportRequest request, CancellationToken cancellationToken)
+    {
+        var stream = await mediaInventoryService.ExportCsvAsync(request, cancellationToken);
 
-        [HttpPost("media-inventory/refresh")]
-        [ProducesResponseType(typeof(MediaInventoryRefreshStatus), StatusCodes.Status200OK)]
-        public async Task<ActionResult<MediaInventoryRefreshStatus>> RefreshInventory(CancellationToken cancellationToken)
-        {
-            var result = await _mediaInventoryService.TriggerRefreshAsync(cancellationToken);
-            return Ok(result);
-        }
+        return File(stream, "text/csv; charset=utf-8", $"media-inventory-{DateTime.UtcNow:yyyyMMddHHmmss}.csv");
+    }
 
-        [HttpGet("media-inventory/refresh/status")]
-        [ProducesResponseType(typeof(MediaInventoryRefreshStatus), StatusCodes.Status200OK)]
-        public async Task<ActionResult<MediaInventoryRefreshStatus>> GetRefreshStatus(CancellationToken cancellationToken)
-        {
-            var result = await _mediaInventoryService.GetRefreshStatusAsync(cancellationToken);
-            return Ok(result);
-        }
+    [HttpPost("media-inventory/{mediaId:int}/trash")]
+    [ProducesResponseType(typeof(MediaInventoryTrashResult), StatusCodes.Status200OK)]
+    public async Task<ActionResult<MediaInventoryTrashResult>> MoveToTrash(int mediaId, CancellationToken cancellationToken)
+    {
+        var success = await mediaInventoryService.MoveToTrashAsync(mediaId, cancellationToken);
 
-        [HttpPost("media-inventory/export")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> ExportCsv([FromBody] MediaInventoryExportRequest request, CancellationToken cancellationToken)
-        {
-            var stream = await _mediaInventoryService.ExportCsvAsync(request, cancellationToken);
-            return File(stream, "text/csv; charset=utf-8", $"media-inventory-{DateTime.UtcNow:yyyyMMddHHmmss}.csv");
-        }
+        if (!success)
+            return NotFound(new MediaInventoryTrashResult { Success = false, MediaId = mediaId, Name = string.Empty });
 
-        [HttpPost("media-inventory/{mediaId:int}/trash")]
-        [ProducesResponseType(typeof(MediaInventoryTrashResult), StatusCodes.Status200OK)]
-        public async Task<ActionResult<MediaInventoryTrashResult>> MoveToTrash(int mediaId, CancellationToken cancellationToken)
-        {
-            var success = await _mediaInventoryService.MoveToTrashAsync(mediaId, cancellationToken);
-            if (!success)
-            {
-                return NotFound(new MediaInventoryTrashResult { Success = false, MediaId = mediaId, Name = string.Empty });
-            }
-
-            return Ok(new MediaInventoryTrashResult { Success = true, MediaId = mediaId, Name = "media" });
-        }
+        return Ok(new MediaInventoryTrashResult { Success = true, MediaId = mediaId, Name = "media" });
     }
 }
