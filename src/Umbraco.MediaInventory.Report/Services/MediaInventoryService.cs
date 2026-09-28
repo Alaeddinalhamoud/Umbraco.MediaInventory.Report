@@ -317,7 +317,7 @@ public sealed class MediaInventoryService(IMemoryCache cache, IMediaService medi
         // Do not materialize IMedia or its keys for the entire library. A site with a
         // million assets is processed in small, bounded batches instead.
 
-        const int batchSize = 1_000;
+        const int batchSize = 1_00;
         var items = new List<MediaInventoryItemDto>();
         var batch = new List<IMedia>(batchSize);
         var processed = 0;
@@ -326,8 +326,7 @@ public sealed class MediaInventoryService(IMemoryCache cache, IMediaService medi
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            if (media.Trashed)
-                continue;
+            if (media.Trashed) continue;
 
             batch.Add(media);
 
