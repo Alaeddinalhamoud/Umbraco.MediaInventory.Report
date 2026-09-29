@@ -8,13 +8,13 @@ const g = "/umbraco/umbracomediainventoryreport/api/v1/media-inventory", l = (i)
 }, q = (i, e) => {
   let t = i.querySelector("#media-insights");
   t || (t = document.createElement("section"), t.id = "media-insights", i.querySelector(".filters")?.before(t));
-  const o = Math.max(1, e.typeCounts.reduce((r, c) => r + c.count, 0)), s = ["#007c72", "#635bff", "#ed8b37", "#d9577a", "#3b82c4"];
+  const r = Math.max(1, e.typeCounts.reduce((o, c) => o + c.count, 0)), s = ["#007c72", "#635bff", "#ed8b37", "#d9577a", "#3b82c4"];
   let a = 0;
-  const n = e.typeCounts.map((r, c) => {
-    const h = a + r.count / o * 100, f = `${s[c % s.length]} ${a}% ${h}%`;
+  const n = e.typeCounts.map((o, c) => {
+    const h = a + o.count / r * 100, f = `${s[c % s.length]} ${a}% ${h}%`;
     return a = h, f;
   }).join(","), p = e.inUseTotal + e.unusedTotal || 1, d = Math.round(e.inUseTotal / p * 100);
-  t.innerHTML = `<div style="display:flex;align-items:baseline;justify-content:space-between;margin:20px 0 10px"><div><p style="margin:0;color:#007c72;font-size:11px;font-weight:800;letter-spacing:.1em">MEDIA HEALTH</p><h3 style="margin:3px 0 0;font-size:18px;color:#263a42">Library at a glance</h3></div><span style="color:#718188;font-size:12px">Matches your active filters</span></div><div style="display:grid;grid-template-columns:repeat(3,minmax(130px,1fr)) minmax(300px,2fr);gap:12px"><div style="padding:16px;border:1px solid #dce8e7;border-radius:12px;background:#fff"><span style="color:#718188;font-size:11px;font-weight:700;letter-spacing:.06em">MEDIA ITEMS</span><strong style="display:block;margin-top:7px;color:#263a42;font-size:26px">${o.toLocaleString()}</strong></div><div style="padding:16px;border:1px solid #c8e8d8;border-radius:12px;background:#f3fbf7"><span style="color:#28734c;font-size:11px;font-weight:700;letter-spacing:.06em">IN USE</span><strong style="display:block;margin-top:7px;color:#176a43;font-size:26px">${e.inUseTotal.toLocaleString()}</strong></div><div style="padding:16px;border:1px solid #f0d8b6;border-radius:12px;background:#fff9ef"><span style="color:#9a681a;font-size:11px;font-weight:700;letter-spacing:.06em">UNUSED</span><strong style="display:block;margin-top:7px;color:#8b5c15;font-size:26px">${e.unusedTotal.toLocaleString()}</strong></div><div style="display:flex;align-items:center;gap:16px;padding:14px 18px;border:1px solid #dce8e7;border-radius:12px;background:#fff"><div style="flex:0 0 76px;width:76px;height:76px;border-radius:50%;background:conic-gradient(${n || "#e5eeee 0 100%"});position:relative"><span style="position:absolute;inset:11px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#52666c;font-size:11px;font-weight:700">Types</span></div><div style="min-width:0;flex:1"><strong style="font-size:13px;color:#30464c">Media by type</strong><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">${e.typeCounts.map((r, c) => `<span style="display:inline-flex;align-items:center;gap:4px;color:#5d7076;font-size:11px"><i style="display:block;width:8px;height:8px;border-radius:50%;background:${s[c % s.length]}"></i>${r.type} ${r.count}</span>`).join("")}</div><div style="margin-top:11px;height:7px;overflow:hidden;border-radius:99px;background:#edf2f1"><span style="display:block;width:${d}%;height:100%;border-radius:inherit;background:#007c72"></span></div><span style="display:block;margin-top:5px;color:#60737a;font-size:11px">${d}% of media is in use</span></div></div></div>`, t.style.cssText = "max-width:100%;overflow:auto";
+  t.innerHTML = `<div style="display:flex;align-items:baseline;justify-content:space-between;margin:20px 0 10px"><div><p style="margin:0;color:#007c72;font-size:11px;font-weight:800;letter-spacing:.1em">MEDIA HEALTH</p><h3 style="margin:3px 0 0;font-size:18px;color:#263a42">Library at a glance</h3></div><span style="color:#718188;font-size:12px">Matches your active filters</span></div><div style="display:grid;grid-template-columns:repeat(3,minmax(130px,1fr)) minmax(300px,2fr);gap:12px"><div style="padding:16px;border:1px solid #dce8e7;border-radius:12px;background:#fff"><span style="color:#718188;font-size:11px;font-weight:700;letter-spacing:.06em">MEDIA ITEMS</span><strong style="display:block;margin-top:7px;color:#263a42;font-size:26px">${r.toLocaleString()}</strong></div><div style="padding:16px;border:1px solid #c8e8d8;border-radius:12px;background:#f3fbf7"><span style="color:#28734c;font-size:11px;font-weight:700;letter-spacing:.06em">IN USE</span><strong style="display:block;margin-top:7px;color:#176a43;font-size:26px">${e.inUseTotal.toLocaleString()}</strong></div><div style="padding:16px;border:1px solid #f0d8b6;border-radius:12px;background:#fff9ef"><span style="color:#9a681a;font-size:11px;font-weight:700;letter-spacing:.06em">UNUSED</span><strong style="display:block;margin-top:7px;color:#8b5c15;font-size:26px">${e.unusedTotal.toLocaleString()}</strong></div><div style="display:flex;align-items:center;gap:16px;padding:14px 18px;border:1px solid #dce8e7;border-radius:12px;background:#fff"><div style="flex:0 0 76px;width:76px;height:76px;border-radius:50%;background:conic-gradient(${n || "#e5eeee 0 100%"});position:relative"><span style="position:absolute;inset:11px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#52666c;font-size:11px;font-weight:700">Types</span></div><div style="min-width:0;flex:1"><strong style="font-size:13px;color:#30464c">Media by type</strong><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">${e.typeCounts.map((o, c) => `<span style="display:inline-flex;align-items:center;gap:4px;color:#5d7076;font-size:11px"><i style="display:block;width:8px;height:8px;border-radius:50%;background:${s[c % s.length]}"></i>${o.type} ${o.count}</span>`).join("")}</div><div style="margin-top:11px;height:7px;overflow:hidden;border-radius:99px;background:#edf2f1"><span style="display:block;width:${d}%;height:100%;border-radius:inherit;background:#007c72"></span></div><span style="display:block;margin-top:5px;color:#60737a;font-size:11px">${d}% of media is in use</span></div></div></div>`, t.style.cssText = "max-width:100%;overflow:auto";
 }, z = (i) => {
   if (!i.querySelector("#media-health-polish")) {
     const n = document.createElement("style");
@@ -34,26 +34,26 @@ const g = "/umbraco/umbracomediainventoryreport/api/v1/media-inventory", l = (i)
   }
   const e = i.querySelector("#media-insights"), t = e?.querySelector(":scope > div:nth-child(2)");
   if (!e || !t) return;
-  const o = [...t.children].slice(0, 4), s = ["media", "check", "warning", "media"];
-  o.forEach((n, p) => {
+  const r = [...t.children].slice(0, 4), s = ["media", "check", "warning", "media"];
+  r.forEach((n, p) => {
     n.style.cssText += ";position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;padding:15px 22px 15px 84px;min-height:96px", p === 3 && n.querySelector("span[style*='position:absolute']")?.remove();
     const d = n.querySelector(".insight-icon");
     if (d)
       d.style.cssText += ";left:16px;right:auto;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%";
     else {
-      const r = document.createElement("span");
-      r.className = "insight-icon", r.innerHTML = l(s[p]), r.style.cssText = `position:absolute;left:16px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:${p === 0 ? "#e8f3ff" : p === 1 ? "#dff6ed" : p === 2 ? "#fff0d8" : "#e8f0ff"};color:${p === 0 ? "#2475c5" : p === 1 ? "#009476" : p === 2 ? "#b66b04" : "#2464d7"}`, n.append(r);
+      const o = document.createElement("span");
+      o.className = "insight-icon", o.innerHTML = l(s[p]), o.style.cssText = `position:absolute;left:16px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:${p === 0 ? "#e8f3ff" : p === 1 ? "#dff6ed" : p === 2 ? "#fff0d8" : "#e8f0ff"};color:${p === 0 ? "#2475c5" : p === 1 ? "#009476" : p === 2 ? "#b66b04" : "#2464d7"}`, n.append(o);
     }
     if (p === 3) {
-      const r = n.querySelector(".insight-icon");
-      r && (r.innerHTML = '<svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7"/></svg>');
+      const o = n.querySelector(".insight-icon");
+      o && (o.innerHTML = '<svg class="i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7"/></svg>');
     }
     n.querySelector(".insight-chevron")?.remove();
   });
   const a = t.lastElementChild;
   if (a) {
     a.style.cssText += ";display:flex;align-items:center;gap:34px;padding:22px 32px";
-    const n = a.querySelector("div"), p = o[0]?.querySelector("strong")?.textContent?.trim() || "0", d = n?.querySelector("span");
+    const n = a.querySelector("div"), p = r[0]?.querySelector("strong")?.textContent?.trim() || "0", d = n?.querySelector("span");
     d && (d.innerHTML = `<strong style="font-size:17px;color:#17325b">${p}</strong><small style="display:block;margin-top:1px;font-size:9px;font-weight:700;color:#647895;text-transform:uppercase;letter-spacing:.06em">items</small>`), n && (n.style.cssText += ";flex:0 0 114px;width:114px;height:114px;box-shadow:0 8px 20px rgb(23 72 110 / 12%)");
     const c = n?.nextElementSibling?.querySelector("strong");
     c && (c.textContent = "Media by type", c.style.cssText += ";font-size:18px;color:#17325b");
@@ -83,40 +83,40 @@ const g = "/umbraco/umbracomediainventoryreport/api/v1/media-inventory", l = (i)
   e && (e.style.marginBottom = "24px");
 }, E = (i) => {
   const e = i.querySelectorAll("#media-insights div[style*='grid-template-columns'] > div");
-  ["media", "check", "warning"].forEach((t, o) => {
-    const s = e[o];
+  ["media", "check", "warning"].forEach((t, r) => {
+    const s = e[r];
     if (!s || s.querySelector(".insight-icon")) return;
     s.style.position = "relative";
     const a = document.createElement("span");
-    a.className = "insight-icon", a.innerHTML = l(t), a.style.cssText = `position:absolute;right:14px;top:14px;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:${o === 0 ? "#e7f4f2" : o === 1 ? "#dff3e7" : "#fff0d8"};color:${o === 0 ? "#007c72" : o === 1 ? "#217147" : "#a46c15"}`, s.append(a);
+    a.className = "insight-icon", a.innerHTML = l(t), a.style.cssText = `position:absolute;right:14px;top:14px;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:${r === 0 ? "#e7f4f2" : r === 1 ? "#dff3e7" : "#fff0d8"};color:${r === 0 ? "#007c72" : r === 1 ? "#217147" : "#a46c15"}`, s.append(a);
   });
 }, v = (i) => i < 1024 ? `${i} B` : i < 1048576 ? `${(i / 1024).toFixed(1)} KB` : i < 1073741824 ? `${(i / 1048576).toFixed(1)} MB` : `${(i / 1073741824).toFixed(2)} GB`, M = (i, e) => {
   const t = i.querySelector(".table-wrap table");
   if (!t || t.querySelector("th.size-heading")) return;
-  const o = document.createElement("th");
-  o.className = "size-heading", o.textContent = "File size", t.querySelector("thead tr")?.children[3].after(o), t.querySelectorAll("tbody > tr").forEach((s, a) => {
+  const r = document.createElement("th");
+  r.className = "size-heading", r.textContent = "File size", t.querySelector("thead tr")?.children[3].after(r), t.querySelectorAll("tbody > tr").forEach((s, a) => {
     if (!s.querySelector(".url")) return;
     const n = document.createElement("td");
     n.style.cssText = "color:#60737a;font-variant-numeric:tabular-nums;white-space:nowrap", n.textContent = v(e.items[a]?.fileSizeBytes ?? 0), s.querySelector(".url")?.after(n);
   }), i.querySelectorAll(".refs").forEach((s) => s.colSpan = 7);
 }, L = (i, e) => {
-  const t = i.querySelector(".table-wrap table"), o = t?.querySelector("th.size-heading");
-  if (!t || !o || t.querySelector("th.uploaded-heading")) return;
+  const t = i.querySelector(".table-wrap table"), r = t?.querySelector("th.size-heading");
+  if (!t || !r || t.querySelector("th.uploaded-heading")) return;
   const s = document.createElement("th");
-  s.className = "uploaded-heading", s.textContent = "Uploaded", o.after(s);
+  s.className = "uploaded-heading", s.textContent = "Uploaded", r.after(s);
   let a = 0;
   t.querySelectorAll("tbody > tr").forEach((n) => {
     const p = n.querySelector(".url");
     if (!p) return;
-    const d = document.createElement("td"), r = e.items[a++]?.createdDate;
-    d.style.cssText = "color:#60737a;white-space:nowrap;font-variant-numeric:tabular-nums", d.textContent = r ? new Intl.DateTimeFormat(void 0, { day: "2-digit", month: "short", year: "numeric" }).format(new Date(r)) : "—", p.nextElementSibling?.after(d);
+    const d = document.createElement("td"), o = e.items[a++]?.createdDate;
+    d.style.cssText = "color:#60737a;white-space:nowrap;font-variant-numeric:tabular-nums", d.textContent = o ? new Intl.DateTimeFormat(void 0, { day: "2-digit", month: "short", year: "numeric" }).format(new Date(o)) : "—", p.nextElementSibling?.after(d);
   }), i.querySelectorAll(".refs").forEach((n) => n.colSpan = 8);
 }, C = (i, e) => {
   const t = i.querySelector("#media-insights div[style*='grid-template-columns']");
   if (!t || t.querySelector(".storage-card")) return;
   t.style.setProperty("grid-template-columns", "repeat(4,minmax(130px,1fr))", "important");
-  const o = document.createElement("div");
-  o.className = "storage-card", o.style.cssText = "position:relative;padding:16px;border:1px solid #cbdcf5;border-radius:12px;background:#f4f8ff;box-shadow:0 3px 12px rgb(23 55 63 / 5%)", o.innerHTML = `<span style="color:#416eac;font-size:11px;font-weight:700;letter-spacing:.06em">LIBRARY STORAGE</span><strong style="display:block;margin-top:7px;color:#295a9b;font-size:26px">${v(e.totalFileSizeBytes)}</strong><span style="position:absolute;right:14px;top:14px;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#dceaff;color:#356eae">${l("media")}</span>`, t.insertBefore(o, t.lastElementChild);
+  const r = document.createElement("div");
+  r.className = "storage-card", r.style.cssText = "position:relative;padding:16px;border:1px solid #cbdcf5;border-radius:12px;background:#f4f8ff;box-shadow:0 3px 12px rgb(23 55 63 / 5%)", r.innerHTML = `<span style="color:#416eac;font-size:11px;font-weight:700;letter-spacing:.06em">LIBRARY STORAGE</span><strong style="display:block;margin-top:7px;color:#295a9b;font-size:26px">${v(e.totalFileSizeBytes)}</strong><span style="position:absolute;right:14px;top:14px;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#dceaff;color:#356eae">${l("media")}</span>`, t.insertBefore(r, t.lastElementChild);
   const s = t.lastElementChild;
   s && (s.style.gridColumn = "span 2");
 }, A = (i) => {
@@ -136,17 +136,17 @@ const g = "/umbraco/umbracomediainventoryreport/api/v1/media-inventory", l = (i)
 }, j = (i) => {
   const e = i.querySelector(".table-wrap table");
   if (!e || e.querySelector("th.url-heading-removed")) return;
-  const t = [...e.querySelectorAll("thead th")].find((o) => o.textContent?.trim() === "URL");
-  t && (t.classList.add("url-heading-removed"), t.remove()), e.querySelectorAll("tbody > tr").forEach((o) => {
-    const s = o.querySelector(".name"), a = o.querySelector(".url"), n = a?.querySelector("a");
+  const t = [...e.querySelectorAll("thead th")].find((r) => r.textContent?.trim() === "URL");
+  t && (t.classList.add("url-heading-removed"), t.remove()), e.querySelectorAll("tbody > tr").forEach((r) => {
+    const s = r.querySelector(".name"), a = r.querySelector(".url"), n = a?.querySelector("a");
     if (!s || !a || !n) return;
     const p = n.href, d = s.textContent ?? "media item";
     s.innerHTML = "";
-    const r = document.createElement("a");
-    r.href = p, r.target = "_blank", r.rel = "noopener", r.textContent = d, r.style.cssText = "display:block;color:#19335b;font-weight:700;text-decoration:none";
+    const o = document.createElement("a");
+    o.href = p, o.target = "_blank", o.rel = "noopener", o.textContent = d, o.style.cssText = "display:block;color:#19335b;font-weight:700;text-decoration:none";
     const c = document.createElement("span");
-    c.textContent = n.textContent ?? p, c.style.cssText = "display:block;max-width:260px;margin-top:4px;overflow:hidden;color:#71859b;font-size:11px;font-weight:400;text-overflow:ellipsis;white-space:nowrap", s.append(r, c), a.remove();
-  }), i.querySelectorAll(".refs").forEach((o) => o.colSpan = 7);
+    c.textContent = n.textContent ?? p, c.style.cssText = "display:block;max-width:260px;margin-top:4px;overflow:hidden;color:#71859b;font-size:11px;font-weight:400;text-overflow:ellipsis;white-space:nowrap", s.append(o, c), a.remove();
+  }), i.querySelectorAll(".refs").forEach((r) => r.colSpan = 7);
 }, H = (i) => {
   const e = i.querySelector("#sort");
   !e || e.querySelector("option[value='createdDate:desc']") || e.insertAdjacentHTML("beforeend", '<option value="createdDate:desc">Newest uploads</option><option value="createdDate:asc">Oldest uploads</option>');
@@ -169,12 +169,12 @@ class N extends w(HTMLElement) {
     const e = this.q("#search"), t = () => {
       this.search = e.value.trim(), this.page = 1, this.load();
     };
-    e.oninput = t, e.addEventListener("search", t), this.q("#type").onchange = (o) => {
-      this.type = o.target.value, this.page = 1, this.load();
-    }, this.q("#refs").onchange = (o) => {
-      this.refs = o.target.value, this.page = 1, this.load();
-    }, this.q("#sort").onchange = (o) => {
-      [this.sort, this.direction] = o.target.value.split(":"), this.page = 1, this.load();
+    e.oninput = t, e.addEventListener("search", t), this.q("#type").onchange = (r) => {
+      this.type = r.target.value, this.page = 1, this.load();
+    }, this.q("#refs").onchange = (r) => {
+      this.refs = r.target.value, this.page = 1, this.load();
+    }, this.q("#sort").onchange = (r) => {
+      [this.sort, this.direction] = r.target.value.split(":"), this.page = 1, this.load();
     }, this.q("#refresh").onclick = () => {
       this.refresh();
     }, this.q("#export").onclick = () => {
@@ -187,8 +187,8 @@ class N extends w(HTMLElement) {
     try {
       const t = await m.get({ url: `${g}?${e}`, security: [{ scheme: "bearer", type: "http" }] });
       if (!t.response?.ok || !t.data) throw Error();
-      const o = t.data;
-      q(this, o), E(this), C(this, o), I(this), T(this), this.show(o), M(this, o), L(this, o), j(this), k(this), this.renderTypeSummary(o);
+      const r = t.data;
+      q(this, r), E(this), C(this, r), I(this), T(this), this.show(r), M(this, r), L(this, r), j(this), k(this), this.renderTypeSummary(r), r.cache.status === "refreshing" && !this.refreshTimer && this.pollRefreshStatus();
     } catch {
       this.q("#content").innerHTML = `<p class="error">${l("warning")} Unable to load the media inventory.</p>`;
     } finally {
@@ -196,11 +196,11 @@ class N extends w(HTMLElement) {
     }
   }
   show(e) {
-    const t = (r) => r.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]), o = e.total ? (e.page - 1) * e.pageSize + 1 : 0, s = Math.min(e.page * e.pageSize, e.total), a = e.cache.status === "valid";
-    this.q("#status").innerHTML = `${l(a ? "check" : "warning")} ${a ? "Up to date" : "Refresh required"} · Last generated ${new Date(e.cache.generatedAt).toLocaleString()}`, this.q("#content").innerHTML = e.items.length ? `<p class="summary">Showing <strong>${o.toLocaleString()}–${s.toLocaleString()}</strong> of <strong>${e.total.toLocaleString()}</strong> media items</p><div class="table-wrap"><table><thead><tr><th></th><th>Name</th><th>Type</th><th>URL</th><th>References</th><th>Actions</th></tr></thead><tbody>${e.items.map((r) => `<tr><td><button class="expand ${this.expanded === r.id ? "open" : ""}" data-expand="${r.id}" aria-label="Show references for ${t(r.name)}">${l("chevron")}</button></td><td class="name">${t(r.name)}</td><td><span class="pill">${t(r.type)}</span></td><td class="url"><a href="${t(r.url)}" target="_blank" rel="noopener">${t(r.url)}</a></td><td><span class="pill ${r.hasReferences ? "use" : "empty"}">${l(r.hasReferences ? "link" : "media")}${r.hasReferences ? `${r.referenceCount} in use` : "Not in use"}</span></td><td class="actions-cell"><button class="icon-button danger" data-trash="${r.id}" data-name="${t(r.name)}" title="Move to trash" aria-label="Move ${t(r.name)} to trash">${l("trash")}</button></td></tr>${this.expanded === r.id ? `<tr><td colspan="6" class="refs" id="refs-${r.id}"><div class="reference-list">Loading references…</div></td></tr>` : ""}`).join("")}</tbody></table></div><div class="pager"><button id="prev" ${this.page === 1 ? "disabled" : ""}>Previous</button><span>Page ${this.page}</span><button id="next" ${s >= e.total ? "disabled" : ""}>Next</button><label>Rows <select id="size">${[25, 50, 100, 250].map((r) => `<option ${r === this.size ? "selected" : ""}>${r}</option>`).join("")}</select></label></div>` : `<p class="empty">${l("media")} No media items match the selected filters.</p>`, this.querySelectorAll("[data-expand]").forEach((r) => r.onclick = () => {
-      this.toggle(Number(r.dataset.expand));
-    }), this.querySelectorAll("[data-trash]").forEach((r) => r.onclick = () => {
-      this.trash(Number(r.dataset.trash), r.dataset.name || "media item");
+    const t = (o) => o.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]), r = e.total ? (e.page - 1) * e.pageSize + 1 : 0, s = Math.min(e.page * e.pageSize, e.total), a = e.cache.status === "valid";
+    this.q("#status").innerHTML = `${l(a ? "check" : "warning")} ${a ? "Up to date" : "Refresh required"} · Last generated ${new Date(e.cache.generatedAt).toLocaleString()}`, this.q("#content").innerHTML = e.items.length ? `<p class="summary">Showing <strong>${r.toLocaleString()}–${s.toLocaleString()}</strong> of <strong>${e.total.toLocaleString()}</strong> media items</p><div class="table-wrap"><table><thead><tr><th></th><th>Name</th><th>Type</th><th>URL</th><th>References</th><th>Actions</th></tr></thead><tbody>${e.items.map((o) => `<tr><td><button class="expand ${this.expanded === o.id ? "open" : ""}" data-expand="${o.id}" aria-label="Show references for ${t(o.name)}">${l("chevron")}</button></td><td class="name">${t(o.name)}</td><td><span class="pill">${t(o.type)}</span></td><td class="url"><a href="${t(o.url)}" target="_blank" rel="noopener">${t(o.url)}</a></td><td><span class="pill ${o.hasReferences ? "use" : "empty"}">${l(o.hasReferences ? "link" : "media")}${o.hasReferences ? `${o.referenceCount} in use` : "Not in use"}</span></td><td class="actions-cell"><button class="icon-button danger" data-trash="${o.id}" data-name="${t(o.name)}" title="Move to trash" aria-label="Move ${t(o.name)} to trash">${l("trash")}</button></td></tr>${this.expanded === o.id ? `<tr><td colspan="6" class="refs" id="refs-${o.id}"><div class="reference-list">Loading references…</div></td></tr>` : ""}`).join("")}</tbody></table></div><div class="pager"><button id="prev" ${this.page === 1 ? "disabled" : ""}>Previous</button><span>Page ${this.page}</span><button id="next" ${s >= e.total ? "disabled" : ""}>Next</button><label>Rows <select id="size">${[25, 50, 100, 250].map((o) => `<option ${o === this.size ? "selected" : ""}>${o}</option>`).join("")}</select></label></div>` : `<p class="empty">${l("media")} No media items match the selected filters.</p>`, this.querySelectorAll("[data-expand]").forEach((o) => o.onclick = () => {
+      this.toggle(Number(o.dataset.expand));
+    }), this.querySelectorAll("[data-trash]").forEach((o) => o.onclick = () => {
+      this.trash(Number(o.dataset.trash), o.dataset.name || "media item");
     });
     const n = this.querySelector("#prev"), p = this.querySelector("#next"), d = this.querySelector("#size");
     n && (n.onclick = () => {
@@ -217,9 +217,9 @@ class N extends w(HTMLElement) {
   async references(e) {
     const t = this.querySelector(`#refs-${e} .reference-list`);
     try {
-      const o = await m.get({ url: `${g}/${e}/references`, security: [{ scheme: "bearer", type: "http" }] });
-      if (!o.response?.ok) throw Error();
-      const s = o.data ?? [];
+      const r = await m.get({ url: `${g}/${e}/references`, security: [{ scheme: "bearer", type: "http" }] });
+      if (!r.response?.ok) throw Error();
+      const s = r.data ?? [];
       t && (t.innerHTML = s.length ? s.map((a) => `<p><strong>${a.name}</strong> · ${a.nodeType} · ${a.path} <a href="${a.url}">Open →</a></p>`).join("") : "No references found.");
     } catch {
       t && (t.textContent = "Unable to load references.");
@@ -237,8 +237,8 @@ class N extends w(HTMLElement) {
     try {
       const e = await m.get({ url: `${g}/refresh/status`, security: [{ scheme: "bearer", type: "http" }] });
       if (!e.response?.ok || !e.data) throw Error();
-      const t = e.data;
-      if (this.q("#status").innerHTML = `${l(t.isRunning ? "refresh" : t.status === "completed" ? "check" : "warning")} ${t.isRunning ? `Refreshing inventory · ${t.percentage}% · ${t.processed.toLocaleString()} / ${t.total.toLocaleString()} items` : t.message}`, t.isRunning) {
+      const t = e.data, r = t.total > 0 ? `Refreshing inventory · ${t.percentage}% · ${t.processed.toLocaleString()} / ${t.total.toLocaleString()} items` : t.message;
+      if (this.q("#status").innerHTML = `${l(t.isRunning ? "refresh" : t.status === "completed" ? "check" : "warning")} ${t.isRunning ? r : t.message}`, t.isRunning) {
         this.refreshTimer = window.setTimeout(() => {
           this.pollRefreshStatus();
         }, 1e3);
@@ -263,7 +263,7 @@ class N extends w(HTMLElement) {
     (await m.post({ url: `${g}/${e}/trash`, security: [{ scheme: "bearer", type: "http" }] })).response?.ok ? (alert(`“${t}” was moved to the recycle bin.`), this.load()) : alert("Unable to move media to the recycle bin.");
   }
   renderTypeSummary(e) {
-    const t = this.q("#type-summary"), o = (a) => a.replace(/[&<>"']/g, (n) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[n]), s = e.typeCounts?.map((a) => `<button data-summary-type="${o(a.type)}" style="display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid ${this.type === a.type ? "#72beb6" : "#dbe8e7"};border-radius:8px;background:${this.type === a.type ? "#e9f7f4" : "#f7fbfa"};color:${this.type === a.type ? "#007c72" : "#466169"};font:600 12px inherit;cursor:pointer"><strong style="display:grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:6px;background:${this.type === a.type ? "#007c72" : "#dff1ed"};color:${this.type === a.type ? "#fff" : "#007c72"};font-size:12px">${a.count}</strong>${o(a.type)}</button>`).join("") ?? "";
+    const t = this.q("#type-summary"), r = (a) => a.replace(/[&<>"']/g, (n) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[n]), s = e.typeCounts?.map((a) => `<button data-summary-type="${r(a.type)}" style="display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid ${this.type === a.type ? "#72beb6" : "#dbe8e7"};border-radius:8px;background:${this.type === a.type ? "#e9f7f4" : "#f7fbfa"};color:${this.type === a.type ? "#007c72" : "#466169"};font:600 12px inherit;cursor:pointer"><strong style="display:grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:6px;background:${this.type === a.type ? "#007c72" : "#dff1ed"};color:${this.type === a.type ? "#fff" : "#007c72"};font-size:12px">${a.count}</strong>${r(a.type)}</button>`).join("") ?? "";
     t.innerHTML = s ? `<span style="align-self:center;margin-right:2px;color:#718188;font-size:11px;font-weight:700;letter-spacing:.06em">BY TYPE</span>${s}` : "", t.style.cssText = "display:flex;gap:8px;flex-wrap:wrap;padding:0 18px 18px", this.querySelectorAll("[data-summary-type]").forEach((a) => a.onclick = () => {
       this.type = a.dataset.summaryType || "", this.q("#type").value = this.type, this.page = 1, this.load();
     });
@@ -273,4 +273,4 @@ customElements.get("media-inventory-report") || customElements.define("media-inv
 export {
   N as default
 };
-//# sourceMappingURL=media-inventory-page-BN6G5ofG.js.map
+//# sourceMappingURL=media-inventory-page-UuHXyw-Q.js.map

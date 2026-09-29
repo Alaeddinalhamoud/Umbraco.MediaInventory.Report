@@ -51,7 +51,7 @@ Select the chevron beside a media item to view its tracked references. The CSV e
 
 ## Refreshing the inventory
 
-The report stores a media-inventory snapshot in memory for up to seven days, with a 12-hour sliding cache window. Choose **Refresh inventory** whenever you need a current view.
+The report stores a media-inventory snapshot in memory for up to seven days, with a 12-hour sliding cache window. It also saves the last completed snapshot under `App_Data/MediaInventoryReport`, so the dashboard can show the previous inventory immediately after an application restart while a new scan runs in the background. Choose **Refresh inventory** whenever you need a current view.
 
 Refreshing runs in the background so the dashboard remains responsive. The status area reports progress while the package scans media in bounded batches, then replaces the cached snapshot only when the refresh completes successfully. If a refresh fails, the previous cache remains available.
 

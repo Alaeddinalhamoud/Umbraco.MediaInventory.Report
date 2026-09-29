@@ -41,3 +41,5 @@ src/Umbraco.MediaInventory.Report/bin/Debug/net10.0/Umbraco.MediaInventory.Repor
 /src/Umbraco.MediaInventory.Report/bin
 /src/Umbraco.MediaInventory.Report/bin
 /src/Umbraco.MediaInventory.Report/bin
+/tests/Umbraco.MediaInventory.Report.Tests/bin/Debug/net10.0
+/src/Umbraco.MediaInventory.Report/bin/Debug/net10.0

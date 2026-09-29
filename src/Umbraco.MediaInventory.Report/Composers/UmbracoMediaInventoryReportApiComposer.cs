@@ -10,5 +10,6 @@ public class UmbracoMediaInventoryReportApiComposer : IComposer
     public void Compose(IUmbracoBuilder builder)
     {
         builder.Services.AddSingleton<IMediaInventoryService, MediaInventoryService>();
+        builder.Services.AddHostedService<MediaInventoryWarmupService>();
     }
 }

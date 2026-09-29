@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Hosting;
 using Serilog;
 using System.Text.Json;
 using Umbraco.Cms.Core.Models;
@@ -7,12 +8,17 @@ using Umbraco.MediaInventory.Report.Models;
 
 namespace Umbraco.MediaInventory.Report.Services;
 
-public sealed class MediaInventoryService(IMemoryCache cache, IMediaService mediaService, ITrackedReferencesService trackedReferencesService, ILogger logger) : IMediaInventoryService
+public sealed class MediaInventoryService(IMemoryCache cache, IMediaService mediaService, ITrackedReferencesService trackedReferencesService, ILogger logger, IHostEnvironment? hostEnvironment = null) : IMediaInventoryService
 {
     private const string CacheKey = "media-inventory:overview";
     private static readonly TimeSpan SevenDays = TimeSpan.FromDays(7);
+    private static readonly JsonSerializerOptions SnapshotJsonOptions = new(JsonSerializerDefaults.Web);
 
     private readonly List<MediaInventoryItemDto> _catalogue = new();
+    private readonly object _refreshLock = new();
+    private readonly string? _snapshotPath = hostEnvironment is null
+        ? null
+        : Path.Combine(hostEnvironment.ContentRootPath, "App_Data", "MediaInventoryReport", "inventory.json");
     private MediaInventoryRefreshStatus _currentRefresh = new();
 
     public Task<MediaInventoryPageResult> GetPageAsync(MediaInventoryQuery query, CancellationToken cancellationToken = default)
@@ -57,7 +63,7 @@ public sealed class MediaInventoryService(IMemoryCache cache, IMediaService medi
             Total = total,
             Cache = new MediaInventoryCacheInfo
             {
-                Status = "valid",
+                Status = _currentRefresh.IsRunning ? "refreshing" : "valid",
                 GeneratedAt = snapshot.GeneratedAt,
                 ExpiresAt = snapshot.GeneratedAt.Add(SevenDays)
             }
@@ -82,44 +88,47 @@ public sealed class MediaInventoryService(IMemoryCache cache, IMediaService medi
 
     public Task<MediaInventoryRefreshStatus> TriggerRefreshAsync(CancellationToken cancellationToken = default)
     {
-        if (_currentRefresh.IsRunning)
+        lock (_refreshLock)
         {
-            logger.Information("Media inventory refresh was requested while a refresh is already running. Started at {StartedAt}; processed {Processed}/{Total}.", _currentRefresh.StartedAt, _currentRefresh.Processed, _currentRefresh.Total);
-            return Task.FromResult(_currentRefresh);
-        }
-
-        try
-        {
-            _currentRefresh = new MediaInventoryRefreshStatus
+            if (_currentRefresh.IsRunning)
             {
-                IsRunning = true,
-                Status = "running",
-                Processed = 0,
-                // The exact total is not known without a second full scan.  For large
-                // libraries we deliberately avoid that extra million-row traversal.
-                Total = 0,
-                StartedAt = DateTimeOffset.UtcNow,
-                UpdatedAt = DateTimeOffset.UtcNow,
-                Message = "Refreshing Media Inventory..."
-            };
+                logger.Information("Media inventory refresh was requested while a refresh is already running. Started at {StartedAt}; processed {Processed}/{Total}.", _currentRefresh.StartedAt, _currentRefresh.Processed, _currentRefresh.Total);
+                return Task.FromResult(_currentRefresh);
+            }
 
-            logger.Information("Starting streamed media inventory refresh.");
-            _ = Task.Run(async () => await RefreshInventoryAsync(cancellationToken), CancellationToken.None);
-
-            return Task.FromResult(_currentRefresh);
-        }
-        catch (Exception ex)
-        {
-            logger.Error(ex, "Failed to start the media inventory refresh job.");
-
-            _currentRefresh = new MediaInventoryRefreshStatus
+            try
             {
-                IsRunning = false,
-                Status = "failed",
-                Message = "Refresh failed to start."
-            };
+                _currentRefresh = new MediaInventoryRefreshStatus
+                {
+                    IsRunning = true,
+                    Status = "running",
+                    Processed = 0,
+                    // The exact total is not known without a second full scan.  For large
+                    // libraries we deliberately avoid that extra million-row traversal.
+                    Total = 0,
+                    StartedAt = DateTimeOffset.UtcNow,
+                    UpdatedAt = DateTimeOffset.UtcNow,
+                    Message = "Refreshing Media Inventory..."
+                };
 
-            return Task.FromResult(_currentRefresh);
+                logger.Information("Starting streamed media inventory refresh.");
+                _ = Task.Run(async () => await RefreshInventoryAsync(cancellationToken), CancellationToken.None);
+
+                return Task.FromResult(_currentRefresh);
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Failed to start the media inventory refresh job.");
+
+                _currentRefresh = new MediaInventoryRefreshStatus
+                {
+                    IsRunning = false,
+                    Status = "failed",
+                    Message = "Refresh failed to start."
+                };
+
+                return Task.FromResult(_currentRefresh);
+            }
         }
     }
 
@@ -153,6 +162,7 @@ public sealed class MediaInventoryService(IMemoryCache cache, IMediaService medi
 
         _catalogue.RemoveAll(item => item.Id == mediaId);
         cache.Remove(CacheKey);
+        DeletePersistedSnapshot();
 
         _currentRefresh = new MediaInventoryRefreshStatus
         {
@@ -243,34 +253,108 @@ public sealed class MediaInventoryService(IMemoryCache cache, IMediaService medi
         if (cache.TryGetValue(CacheKey, out MediaInventorySnapshot? snapshot) && snapshot is not null)
             return snapshot;
 
-        snapshot = BuildSnapshot();
+        snapshot = LoadPersistedSnapshot();
 
-        cache.Set(CacheKey, snapshot, new MemoryCacheEntryOptions
+        if (snapshot is not null)
         {
-            AbsoluteExpirationRelativeToNow = SevenDays,
-            SlidingExpiration = TimeSpan.FromHours(12)
-        });
+            _catalogue.Clear();
+            _catalogue.AddRange(snapshot.Items);
+            cache.Set(CacheKey, snapshot, CreateCacheEntryOptions());
+            return snapshot;
+        }
 
-        return snapshot;
+        // A cold inventory must not make the dashboard request wait for every
+        // media item and tracked-reference lookup. The refresh job creates the
+        // first snapshot in the background instead.
+        TriggerRefreshAsync().GetAwaiter().GetResult();
+        return new MediaInventorySnapshot();
+    }
+
+    private static MemoryCacheEntryOptions CreateCacheEntryOptions() => new()
+    {
+        AbsoluteExpirationRelativeToNow = SevenDays,
+        SlidingExpiration = TimeSpan.FromHours(12)
+    };
+
+    private MediaInventorySnapshot? LoadPersistedSnapshot()
+    {
+        if (string.IsNullOrWhiteSpace(_snapshotPath) || !System.IO.File.Exists(_snapshotPath))
+            return null;
+
+        try
+        {
+            using var stream = System.IO.File.OpenRead(_snapshotPath);
+            return JsonSerializer.Deserialize<MediaInventorySnapshot>(stream, SnapshotJsonOptions);
+        }
+        catch (Exception ex) when (ex is IOException or JsonException)
+        {
+            logger.Warning(ex, "Unable to read persisted media inventory snapshot. A new inventory will be generated.");
+            return null;
+        }
+    }
+
+    private void PersistSnapshot(MediaInventorySnapshot snapshot)
+    {
+        if (string.IsNullOrWhiteSpace(_snapshotPath))
+            return;
+
+        try
+        {
+            var directory = Path.GetDirectoryName(_snapshotPath)!;
+            Directory.CreateDirectory(directory);
+            var temporaryPath = _snapshotPath + ".tmp";
+
+            using (var stream = System.IO.File.Create(temporaryPath))
+                JsonSerializer.Serialize(stream, snapshot, SnapshotJsonOptions);
+
+            System.IO.File.Move(temporaryPath, _snapshotPath, overwrite: true);
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            logger.Warning(ex, "Unable to persist media inventory snapshot. The in-memory snapshot remains available.");
+        }
+    }
+
+    private void DeletePersistedSnapshot()
+    {
+        if (string.IsNullOrWhiteSpace(_snapshotPath) || !System.IO.File.Exists(_snapshotPath))
+            return;
+
+        try
+        {
+            System.IO.File.Delete(_snapshotPath);
+        }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+        {
+            logger.Warning(ex, "Unable to remove persisted media inventory snapshot after a media update.");
+        }
     }
 
     private async Task RefreshInventoryAsync(CancellationToken cancellationToken)
     {
         try
         {
+            // GetPagedDescendants returns its total without enumerating every
+            // descendant. This makes the progress indicator meaningful without
+            // adding a second full-library scan.
+            _currentRefresh.Total = GetMediaCount(cancellationToken);
+            _currentRefresh.Percentage = 0;
+            _currentRefresh.Message = "Preparing media inventory...";
+            _currentRefresh.UpdatedAt = DateTimeOffset.UtcNow;
+
             var snapshot = BuildSnapshot(cancellationToken, processed =>
             {
                 _currentRefresh.Processed = processed;
+                _currentRefresh.Percentage = _currentRefresh.Total == 0
+                    ? 0
+                    : Math.Min(99, (int)Math.Floor(processed * 100d / _currentRefresh.Total));
                 _currentRefresh.UpdatedAt = DateTimeOffset.UtcNow;
                 _currentRefresh.Message = $"Processing media: {processed:N0}";
                 logger.Information("Media inventory refresh progress: {Processed:N0} records.", processed);
             });
 
-            cache.Set(CacheKey, snapshot, new MemoryCacheEntryOptions
-            {
-                AbsoluteExpirationRelativeToNow = SevenDays,
-                SlidingExpiration = TimeSpan.FromHours(12)
-            });
+            cache.Set(CacheKey, snapshot, CreateCacheEntryOptions());
+            PersistSnapshot(snapshot);
 
             _currentRefresh = new MediaInventoryRefreshStatus
             {
@@ -317,7 +401,10 @@ public sealed class MediaInventoryService(IMemoryCache cache, IMediaService medi
         // Do not materialize IMedia or its keys for the entire library. A site with a
         // million assets is processed in small, bounded batches instead.
 
-        const int batchSize = 1_00;
+        // Tracked-reference lookups are database calls.  Keep this aligned with
+        // the reference-service page size so a 10,000-item library needs about
+        // ten lookups rather than one hundred, while memory remains bounded.
+        const int batchSize = 1_000;
         var items = new List<MediaInventoryItemDto>();
         var batch = new List<IMedia>(batchSize);
         var processed = 0;
@@ -386,6 +473,25 @@ public sealed class MediaInventoryService(IMemoryCache cache, IMediaService medi
 
             } while (pageIndex * pageSize < totalRecords);
         }
+    }
+
+    private int GetMediaCount(CancellationToken cancellationToken)
+    {
+        const int countPageSize = 1;
+        long total = 0;
+
+        foreach (var root in mediaService.GetRootMedia() ?? [])
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            total++;
+
+            // Only one row is requested; totalRecords contains the complete
+            // descendant count for this root.
+            _ = mediaService.GetPagedDescendants(root.Id, 0, countPageSize, out var descendants);
+            total = Math.Min(int.MaxValue, total + descendants);
+        }
+
+        return (int)total;
     }
 
     private static MediaInventoryItemDto MapMedia(IMedia media, ISet<Guid> usedMediaKeys)

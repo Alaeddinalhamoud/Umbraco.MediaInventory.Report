@@ -1,4 +1,3 @@
-using System.Reflection;
 using System.Text;
 using Microsoft.Extensions.Caching.Memory;
 using Umbraco.MediaInventory.Report.Models;
@@ -108,10 +107,7 @@ public sealed class MediaInventoryServiceTests
 
     private static MediaInventoryService CreateService(IMemoryCache cache, List<MediaInventoryItemDto> items)
     {
-        Type snapshotType = typeof(MediaInventoryService).GetNestedType("MediaInventorySnapshot", BindingFlags.NonPublic)!;
-        object snapshot = Activator.CreateInstance(snapshotType)!;
-        snapshotType.GetProperty("Items")!.SetValue(snapshot, items);
-        cache.Set("media-inventory:overview", snapshot);
+        cache.Set("media-inventory:overview", new MediaInventorySnapshot { Items = items });
 
         return new MediaInventoryService(cache, null!, null!, null!);
     }

@@ -16,7 +16,7 @@ const e = [
       pathname: "media-inventory"
     },
     conditions: [{ alias: "Umb.Condition.SectionAlias", match: "Umb.Section.Media" }],
-    element: () => import("./media-inventory-page-BN6G5ofG.js")
+    element: () => import("./media-inventory-page-UuHXyw-Q.js")
   }
 ], n = [
   ...e
