@@ -11,7 +11,7 @@
 		<PackageId>MediaInventory.Report.Umbraco</PackageId>
 		<Product>Umbraco.MediaInventory.Report</Product>
 		<Title>Umbraco Media Inventory Report</Title>
-		<Version>1.1.0</Version>
+		<Version>1.1.1</Version>
 		<Authors>Alaeddin Alhamoud</Authors>
 		<Copyright>Copyright © 2026 Alaeddin Alhamoud</Copyright>
 		<Description>Adds a Media-section dashboard for auditing Umbraco media assets, including usage references, storage insights, CSV export, background refresh, and safe recycle-bin cleanup.</Description>

@@ -12,6 +12,13 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       external: [/^@umbraco/],
+      // Umbraco loads the package entry point from a fixed URL. Keeping its
+      // dynamically imported manifests in this same file prevents an older
+      // cached entry point from requesting a chunk that a package upgrade has
+      // already replaced.
+      output: {
+        inlineDynamicImports: true,
+      },
     },
   },
 });
