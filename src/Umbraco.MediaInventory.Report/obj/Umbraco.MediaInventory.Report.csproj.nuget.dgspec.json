@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj": {
-      "version": "1.0.0",
+      "version": "1.1.3",
       "restore": {
         "projectUniqueName": "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
         "projectName": "MediaInventory.Report.Umbraco",
@@ -28,8 +28,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/3CDigital/_packaging/3CDigital/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {

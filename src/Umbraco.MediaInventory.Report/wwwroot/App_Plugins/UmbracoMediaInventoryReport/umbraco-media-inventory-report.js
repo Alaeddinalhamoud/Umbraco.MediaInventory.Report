@@ -22,7 +22,7 @@ const te = [
   }
 ], Be = [
   ...te
-], H = {
+], D = {
   bodySerializer: (r) => JSON.stringify(r, (e, t) => typeof t == "bigint" ? t.toString() : t)
 };
 function re({
@@ -71,8 +71,8 @@ function re({
         v.addEventListener("abort", I);
         try {
           for (; ; ) {
-            const { done: G, value: Z } = await w.read();
-            if (G) break;
+            const { done: J, value: Z } = await w.read();
+            if (J) break;
             y += Z, y = y.replace(/\r\n?/g, `
 `);
             const L = y.split(`
@@ -178,13 +178,13 @@ const ie = (r) => {
         return `${t}=${l}`;
     }
   }
-  const a = ie(i), o = n.map((l) => i === "label" || i === "simple" ? r ? l : encodeURIComponent(l) : M({
+  const a = ie(i), o = n.map((l) => i === "label" || i === "simple" ? r ? l : encodeURIComponent(l) : j({
     allowReserved: r,
     name: t,
     value: l
   })).join(a);
   return i === "label" || i === "matrix" ? a + o : o;
-}, M = ({
+}, j = ({
   allowReserved: r,
   name: e,
   value: t
@@ -224,7 +224,7 @@ const ie = (r) => {
     }
   }
   const o = ne(i), l = Object.entries(n).map(
-    ([d, s]) => M({
+    ([d, s]) => j({
       allowReserved: r,
       name: i === "deepObject" ? `${t}[${d}]` : d,
       value: s
@@ -261,7 +261,7 @@ const ie = (r) => {
       if (l === "matrix") {
         t = t.replace(
           n,
-          `;${M({
+          `;${j({
             name: o,
             value: d
           })}`
@@ -330,7 +330,7 @@ const de = async (r, e) => {
         });
         d && n.push(d);
       } else {
-        const d = M({
+        const d = j({
           allowReserved: l.allowReserved,
           name: a,
           value: o
@@ -381,7 +381,7 @@ const B = (r) => le({
   query: r.query,
   querySerializer: typeof r.querySerializer == "function" ? r.querySerializer : F(r.querySerializer),
   url: r.url
-}), D = (r, e) => {
+}), H = (r, e) => {
   const t = { ...r, ...e };
   return t.baseUrl?.endsWith("/") && (t.baseUrl = t.baseUrl.substring(0, t.baseUrl.length - 1)), t.headers = W(r.headers, e.headers), t;
 }, fe = (r) => {
@@ -451,14 +451,14 @@ const ue = () => ({
 }), ge = {
   "Content-Type": "application/json"
 }, V = (r = {}) => ({
-  ...H,
+  ...D,
   headers: ge,
   parseAs: "auto",
   querySerializer: me,
   ...r
 }), xe = (r = {}) => {
-  let e = D(V(), r);
-  const t = () => ({ ...e }), i = (c) => (e = D(e, c), t()), n = ue(), a = async (c) => {
+  let e = H(V(), r);
+  const t = () => ({ ...e }), i = (c) => (e = H(e, c), t()), n = ue(), a = async (c) => {
     const p = {
       ...e,
       ...c,
@@ -539,12 +539,12 @@ const ue = () => ({
         };
       }
       const $ = await f.text();
-      let j;
+      let M;
       try {
-        j = JSON.parse($);
+        M = JSON.parse($);
       } catch {
       }
-      throw j ?? $;
+      throw M ?? $;
     } catch (h) {
       let u = h;
       for (const v of n.error.fns)
@@ -726,11 +726,11 @@ const ue = () => ({
   i.className = "storage-card", i.style.cssText = "position:relative;padding:16px;border:1px solid #cbdcf5;border-radius:12px;background:#f4f8ff;box-shadow:0 3px 12px rgb(23 55 63 / 5%)", i.innerHTML = `<span style="color:#416eac;font-size:11px;font-weight:700;letter-spacing:.06em">LIBRARY STORAGE</span><strong style="display:block;margin-top:7px;color:#295a9b;font-size:26px">${Y(e.totalFileSizeBytes)}</strong><span style="position:absolute;right:14px;top:14px;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#dceaff;color:#356eae">${b("media")}</span>`, t.insertBefore(i, t.lastElementChild);
   const n = t.lastElementChild;
   n && (n.style.gridColumn = "span 2");
-}, Me = (r) => {
+}, je = (r) => {
   if (r.querySelector("#inventory-modern-theme")) return;
   const e = document.createElement("style");
   e.id = "inventory-modern-theme", e.textContent = ":host{background:#f6f8f9}.inventory{padding:32px 28px 44px!important}.hero{border:0!important;border-radius:18px!important;box-shadow:0 10px 30px rgb(24 67 65 / 9%)!important}.filters,.table-wrap{border:0!important;border-radius:14px!important;box-shadow:0 5px 20px rgb(23 55 63 / 7%)!important}.filters{overflow:hidden}.filters>div:first-child{padding:18px 20px 0!important}.toolbar{padding:16px 20px 20px!important;background:linear-gradient(180deg,#fff,#fbfdfd)}.toolbar label{color:#5c7076!important}.toolbar select,.search input{border-color:#d8e3e5!important;background:#fff!important;box-shadow:0 1px 2px rgb(23 55 63 / 3%)}.toolbar select:hover,.search input:hover{border-color:#90bdb8!important}.status{box-shadow:0 2px 5px rgb(25 108 69 / 7%)}#media-insights>div:first-child{margin-top:26px!important}#media-insights>div:nth-child(2){grid-template-columns:repeat(3,minmax(145px,1fr)) minmax(330px,2fr)!important}#media-insights>div:nth-child(2)>div{box-shadow:0 3px 12px rgb(23 55 63 / 5%)}.content{margin-top:20px!important}.summary{padding-left:2px}.table-wrap table th{background:#f1f6f6!important}.table-wrap table td{padding-top:15px!important;padding-bottom:15px!important}.table-wrap tbody tr:hover{background:#f2faf8!important}.pager{padding:16px 3px!important}.pager button,.pager select{box-shadow:0 1px 2px rgb(23 55 63 / 4%)}@media(max-width:1050px){#media-insights>div:nth-child(2){grid-template-columns:repeat(3,1fr)!important}#media-insights>div:nth-child(2)>div:last-child{grid-column:1/-1}}@media(max-width:700px){.inventory{padding:18px 14px 32px!important}.hero{padding:20px!important}.hero-icon{width:46px!important;height:46px!important}.intro h2{font-size:24px!important}#media-insights>div:first-child{align-items:flex-start!important;gap:8px;flex-direction:column}#media-insights>div:nth-child(2){grid-template-columns:1fr!important}#media-insights>div:nth-child(2)>div:last-child{grid-column:auto}.filters>div:first-child{padding-left:16px!important}.toolbar{padding:14px 16px 18px!important}.hero-actions{width:100%}.actions button{min-height:42px}}", r.append(e);
-}, je = (r) => {
+}, Me = (r) => {
   const e = r.querySelector("#status"), t = r.querySelector(".hero .actions");
   !e || !t || (t.append(e), e.style.cssText = "width:100%;justify-content:center;margin:2px 0 0;white-space:nowrap");
 }, Ae = (r) => {
@@ -758,30 +758,35 @@ const ue = () => ({
   const e = r.querySelector("#sort");
   !e || e.querySelector("option[value='createdDate:desc']") || e.insertAdjacentHTML("beforeend", '<option value="createdDate:desc">Newest uploads</option><option value="createdDate:asc">Oldest uploads</option>');
 };
-class J extends ee(HTMLElement) {
+class G extends ee(HTMLElement) {
   constructor() {
     super(...arguments), this.page = 1, this.size = 50, this.search = "", this.type = "", this.refs = "", this.sort = "name", this.direction = "asc";
   }
   connectedCallback() {
-    this.innerHTML = `<style>${this.css()}</style><section class="inventory" aria-busy="true"><header class="hero"><div class="hero-icon">${b("media")}</div><div class="intro"><small>MEDIA MANAGEMENT</small><h2>Media inventory</h2><p>Explore your library, see where files are used and keep things tidy.</p></div><div class="actions"><button id="export" class="quiet">${b("download")} Export CSV</button><button id="refresh" class="primary">${b("refresh")} Refresh inventory</button></div></header><div id="status" class="status" role="status">${b("refresh")} Loading media inventory…</div><div class="filters"><div><h3>Find media</h3><span>Filter the inventory</span></div><div class="toolbar"><label class="search">${b("search")}<input id="search" type="search" placeholder="Search by name or ID" aria-label="Search by name or ID"></label><label>Media type<select id="type"><option value="">All media types</option><option>Image</option><option>File</option><option>Folder</option><option>Video</option><option>Audio</option></select></label><label>References<select id="refs"><option value="">All items</option><option value="true">In use</option><option value="false">Not in use</option></select></label><label>Sort by<select id="sort"><option value="name:asc">Name, A–Z</option><option value="name:desc">Name, Z–A</option><option value="type:asc">Type</option><option value="references:desc">Most references</option><option value="references:asc">Fewest references</option></select></label></div><div id="type-summary" class="type-summary" aria-live="polite"></div></div><main id="content" class="content"><p class="loading">${b("refresh")} Loading inventory…</p></main></section>`, this.bind(), this.load();
+    this.innerHTML = `<style>${this.css()}</style><section class="inventory" aria-busy="true"><header class="hero"><div class="hero-icon">${b("media")}</div><div class="intro"><small>MEDIA MANAGEMENT</small><h2>Media inventory</h2><p>Explore your library, see where files are used and keep things tidy.</p></div><div class="actions"><button id="export" class="quiet">${b("download")} Export CSV</button><button id="refresh" class="primary">${b("refresh")} Refresh inventory</button></div></header><div id="status" class="status" role="status">${b("refresh")} Loading media inventory…</div><div class="filters"><div><h3>Find media</h3><span>Filter the inventory</span></div><div class="toolbar"><label class="search">${b("search")}<input id="search" type="search" placeholder="Search by name or ID" aria-label="Search by name or ID"></label><label>Media type<select id="type"><option value="">All media types</option><option>Image</option><option>File</option><option>Folder</option><option>Video</option><option>Audio</option></select></label><label>References<select id="refs"><option value="">All items</option><option value="true">In use</option><option value="false">Not in use</option></select></label><label>Sort by<select id="sort"><option value="name:asc">Name, A–Z</option><option value="name:desc">Name, Z–A</option><option value="type:asc">Type</option><option value="references:desc">Most references</option><option value="references:asc">Fewest references</option></select></label></div><div id="type-summary" class="type-summary" aria-live="polite"></div></div><main id="content" class="content"><p class="loading">${b("refresh")} Loading inventory…</p></main><footer class="package-footer">Umbraco Media Inventory Report <span aria-hidden="true">·</span> <a id="repository" href="https://github.com/Alaeddinalhamoud/Umbraco.MediaInventory.Report" target="_blank" rel="noopener noreferrer">GitHub repository</a> <span aria-hidden="true">·</span> <span id="package-version">v1.1.2</span></footer></section>`, this.bind(), this.load();
   }
   css() {
-    return ":host{display:block;color:#263a42;font-family:var(--uui-font-family,inherit)}*{box-sizing:border-box}.inventory{max-width:1520px;margin:auto;padding:24px}.hero{display:flex;align-items:center;gap:18px;padding:26px 30px;border:1px solid #d7ebe7;border-radius:16px;background:linear-gradient(120deg,#fff,#edf9f7);box-shadow:0 5px 18px #17434212}.hero-icon{display:grid;place-items:center;width:54px;height:54px;border-radius:14px;background:#007c72;color:white;box-shadow:0 5px 12px #007c723d}.hero-icon .i{width:29px;height:29px}.intro small{color:#007c72;font-size:11px;font-weight:800;letter-spacing:.1em}.intro h2{margin:3px 0 0;font-size:28px;letter-spacing:-.035em}.intro p{margin:6px 0 0;color:#5d6d74;font-size:14px}.actions{display:flex;gap:9px;margin-left:auto;flex-wrap:wrap}button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;padding:0 13px;border:1px solid #bdcccf;border-radius:7px;background:#fff;color:#30434a;font:600 13px inherit;cursor:pointer;transition:.16s}.primary{background:#007c72;border-color:#007c72;color:#fff}.primary:hover{background:#006b63}.quiet:hover,button:not(:disabled):hover{border-color:#007c72;color:#007c72}.primary:hover{color:#fff}button:disabled{opacity:.45;cursor:not-allowed}.i{width:17px;height:17px;flex:none}.status{display:inline-flex;align-items:center;gap:7px;margin:17px 0;padding:8px 12px;border:1px solid #c5e6d5;border-radius:999px;background:#effaf4;color:#196c45;font-size:12px;font-weight:600}.filters,.table-wrap{border:1px solid #e0e8ea;border-radius:12px;background:#fff;box-shadow:0 3px 12px #17373f0c}.filters>div:first-child{display:flex;align-items:baseline;gap:9px;padding:15px 18px 0}.filters h3{margin:0;font-size:15px}.filters span{color:#74848a;font-size:12px}.toolbar{display:flex;align-items:end;gap:12px;flex-wrap:wrap;padding:14px 18px 18px}.toolbar label{display:grid;gap:5px;color:#53656d;font-size:11px;font-weight:700;letter-spacing:.025em;text-transform:uppercase}.toolbar select,.search input{height:38px;border:1px solid #cbd8db;border-radius:7px;background:#fff;color:#24373e;font:400 13px inherit}.toolbar select{min-width:142px;padding:0 10px}.search{position:relative;min-width:280px}.search .i{position:absolute;top:29px;left:11px;color:#6c7d82}.search input{width:100%;padding:0 10px 0 34px}.content{margin-top:16px}.summary{margin:0 0 9px;color:#64757c;font-size:13px}.summary strong{color:#273c44}.table-wrap{overflow:auto}table{width:100%;min-width:770px;border-collapse:collapse}th{padding:12px 14px;background:#f5f8f8;color:#66787e;font-size:10px;font-weight:800;letter-spacing:.085em;text-align:left;text-transform:uppercase}td{padding:13px 14px;border-top:1px solid #edf1f2;font-size:13px;vertical-align:middle}tbody tr:hover{background:#f6fbfa}.expand,.icon-button{display:grid;place-items:center;width:30px;height:30px;padding:0;border:0;border-radius:6px;background:transparent;color:#547077;cursor:pointer}.expand:hover,.icon-button:hover{background:#e7f4f2;color:#007c72}.expand.open .i{transform:rotate(90deg)}.name{font-weight:700}.pill{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border-radius:999px;background:#eef3f4;color:#536c73;font-size:11px;font-weight:700;white-space:nowrap}.pill.use{background:#edf8f2;color:#237147}.pill.empty{background:#f4f5f5;color:#78868a}.pill .i{width:13px;height:13px}.url{max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.url a,.reference-list a{color:#007c72;text-decoration:none}.url a:hover,.reference-list a:hover{text-decoration:underline}.actions-cell{width:58px;text-align:center}.danger:hover{background:#fff0ef;color:#b23732}.refs{padding:0 18px 16px 54px!important;background:#f6fbfa}.reference-list{padding:13px 15px;border-left:3px solid #74c8be;background:#fff;border-radius:0 8px 8px 0;color:#52656d}.reference-list p{margin:0;padding:7px 0;border-bottom:1px solid #edf1f1;font-size:12px}.reference-list p:last-child{border:0}.pager{display:flex;align-items:center;justify-content:flex-end;gap:10px;padding:13px 2px;color:#61737a;font-size:12px}.pager select,.pager button{height:33px;padding:0 10px;border:1px solid #cbd8db;border-radius:6px;background:#fff;color:#30434a;font:600 12px inherit}.empty,.loading,.error{display:flex;align-items:center;gap:9px;margin:0;padding:28px;border:1px dashed #ccd9dc;border-radius:12px;background:#fff;color:#62767c}.error{border-style:solid;border-color:#f0c4c0;background:#fff6f5;color:#a33a32}@media(max-width:720px){.inventory{padding:16px}.hero{align-items:flex-start;flex-wrap:wrap;padding:20px}.actions{width:100%;margin:0}.actions button{flex:1}.toolbar label,.search{width:100%}.search input,.toolbar select{width:100%}.pager{justify-content:center;flex-wrap:wrap}.refs{padding-left:18px!important}}";
+    return ":host{display:block;color:#263a42;font-family:var(--uui-font-family,inherit)}*{box-sizing:border-box}.inventory{max-width:1520px;margin:auto;padding:24px}.hero{display:flex;align-items:center;gap:18px;padding:26px 30px;border:1px solid #d7ebe7;border-radius:16px;background:linear-gradient(120deg,#fff,#edf9f7);box-shadow:0 5px 18px #17434212}.hero-icon{display:grid;place-items:center;width:54px;height:54px;border-radius:14px;background:#007c72;color:white;box-shadow:0 5px 12px #007c723d}.hero-icon .i{width:29px;height:29px}.intro small{color:#007c72;font-size:11px;font-weight:800;letter-spacing:.1em}.intro h2{margin:3px 0 0;font-size:28px;letter-spacing:-.035em}.intro p{margin:6px 0 0;color:#5d6d74;font-size:14px}.actions{display:flex;gap:9px;margin-left:auto;flex-wrap:wrap}button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;padding:0 13px;border:1px solid #bdcccf;border-radius:7px;background:#fff;color:#30434a;font:600 13px inherit;cursor:pointer;transition:.16s}.primary{background:#007c72;border-color:#007c72;color:#fff}.primary:hover{background:#006b63}.quiet:hover,button:not(:disabled):hover{border-color:#007c72;color:#007c72}.primary:hover{color:#fff}button:disabled{opacity:.45;cursor:not-allowed}.i{width:17px;height:17px;flex:none}.status{display:inline-flex;align-items:center;gap:7px;margin:17px 0;padding:8px 12px;border:1px solid #c5e6d5;border-radius:999px;background:#effaf4;color:#196c45;font-size:12px;font-weight:600}.filters,.table-wrap{border:1px solid #e0e8ea;border-radius:12px;background:#fff;box-shadow:0 3px 12px #17373f0c}.filters>div:first-child{display:flex;align-items:baseline;gap:9px;padding:15px 18px 0}.filters h3{margin:0;font-size:15px}.filters span{color:#74848a;font-size:12px}.toolbar{display:flex;align-items:end;gap:12px;flex-wrap:wrap;padding:14px 18px 18px}.toolbar label{display:grid;gap:5px;color:#53656d;font-size:11px;font-weight:700;letter-spacing:.025em;text-transform:uppercase}.toolbar select,.search input{height:38px;border:1px solid #cbd8db;border-radius:7px;background:#fff;color:#24373e;font:400 13px inherit}.toolbar select{min-width:142px;padding:0 10px}.search{position:relative;min-width:280px}.search .i{position:absolute;top:29px;left:11px;color:#6c7d82}.search input{width:100%;padding:0 10px 0 34px}.content{margin-top:16px}.summary{margin:0 0 9px;color:#64757c;font-size:13px}.summary strong{color:#273c44}.table-wrap{overflow:auto}table{width:100%;min-width:770px;border-collapse:collapse}th{padding:12px 14px;background:#f5f8f8;color:#66787e;font-size:10px;font-weight:800;letter-spacing:.085em;text-align:left;text-transform:uppercase}td{padding:13px 14px;border-top:1px solid #edf1f2;font-size:13px;vertical-align:middle}tbody tr:hover{background:#f6fbfa}.expand,.icon-button{display:grid;place-items:center;width:30px;height:30px;padding:0;border:0;border-radius:6px;background:transparent;color:#547077;cursor:pointer}.expand:hover,.icon-button:hover{background:#e7f4f2;color:#007c72}.expand.open .i{transform:rotate(90deg)}.name{font-weight:700}.pill{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border-radius:999px;background:#eef3f4;color:#536c73;font-size:11px;font-weight:700;white-space:nowrap}.pill.use{background:#edf8f2;color:#237147}.pill.empty{background:#f4f5f5;color:#78868a}.pill .i{width:13px;height:13px}.url{max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.url a,.reference-list a,.package-footer a{color:#007c72;text-decoration:none}.url a:hover,.reference-list a:hover,.package-footer a:hover{text-decoration:underline}.actions-cell{width:58px;text-align:center}.danger:hover{background:#fff0ef;color:#b23732}.refs{padding:0 18px 16px 54px!important;background:#f6fbfa}.reference-list{padding:13px 15px;border-left:3px solid #74c8be;background:#fff;border-radius:0 8px 8px 0;color:#52656d}.reference-list p{margin:0;padding:7px 0;border-bottom:1px solid #edf1f1;font-size:12px}.reference-list p:last-child{border:0}.pager{display:flex;align-items:center;justify-content:flex-end;gap:10px;padding:13px 2px;color:#61737a;font-size:12px}.pager select,.pager button{height:33px;padding:0 10px;border:1px solid #cbd8db;border-radius:6px;background:#fff;color:#30434a;font:600 12px inherit}.package-footer{display:flex;justify-content:center;gap:8px;margin-top:24px;padding:16px 0 0;border-top:1px solid #dfe8e8;color:#718188;font-size:12px}.empty,.loading,.error{display:flex;align-items:center;gap:9px;margin:0;padding:28px;border:1px dashed #ccd9dc;border-radius:12px;background:#fff;color:#62767c}.error{border-style:solid;border-color:#f0c4c0;background:#fff6f5;color:#a33a32}@media(max-width:720px){.inventory{padding:16px}.hero{align-items:flex-start;flex-wrap:wrap;padding:20px}.actions{width:100%;margin:0}.actions button{flex:1}.toolbar label,.search{width:100%}.search input,.toolbar select{width:100%}.pager{justify-content:center;flex-wrap:wrap}.package-footer{align-items:center;flex-wrap:wrap}.refs{padding-left:18px!important}}";
   }
   q(e) {
     return this.querySelector(e);
   }
   bind() {
-    Me(this), Ae(this), je(this), Se(this), Re(this);
-    const e = this.q("#search"), t = () => {
-      this.search = e.value.trim(), this.page = 1, this.load();
+    je(this), Ae(this), Me(this), Se(this), Re(this);
+    const e = this.q("#package-version");
+    fetch("/umbraco/umbracomediainventoryreport/api/v1/package/version").then((n) => n.ok ? n.json() : Promise.reject()).then((n) => {
+      e.textContent = `v${n}`;
+    }).catch(() => {
+    });
+    const t = this.q("#search"), i = () => {
+      this.search = t.value.trim(), this.page = 1, this.load();
     };
-    e.oninput = t, e.addEventListener("search", t), this.q("#type").onchange = (i) => {
-      this.type = i.target.value, this.page = 1, this.load();
-    }, this.q("#refs").onchange = (i) => {
-      this.refs = i.target.value, this.page = 1, this.load();
-    }, this.q("#sort").onchange = (i) => {
-      [this.sort, this.direction] = i.target.value.split(":"), this.page = 1, this.load();
+    t.oninput = i, t.addEventListener("search", i), this.q("#type").onchange = (n) => {
+      this.type = n.target.value, this.page = 1, this.load();
+    }, this.q("#refs").onchange = (n) => {
+      this.refs = n.target.value, this.page = 1, this.load();
+    }, this.q("#sort").onchange = (n) => {
+      [this.sort, this.direction] = n.target.value.split(":"), this.page = 1, this.load();
     }, this.q("#refresh").onclick = () => {
       this.refresh();
     }, this.q("#export").onclick = () => {
@@ -804,7 +809,7 @@ class J extends ee(HTMLElement) {
   }
   show(e) {
     const t = (s) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]), i = e.total ? (e.page - 1) * e.pageSize + 1 : 0, n = Math.min(e.page * e.pageSize, e.total), a = e.cache.status === "valid";
-    this.q("#status").innerHTML = `${b(a ? "check" : "warning")} ${a ? "Up to date" : "Refresh required"} · Last generated ${new Date(e.cache.generatedAt).toLocaleString()}`, this.q("#content").innerHTML = e.items.length ? `<p class="summary">Showing <strong>${i.toLocaleString()}–${n.toLocaleString()}</strong> of <strong>${e.total.toLocaleString()}</strong> media items</p><div class="table-wrap"><table><thead><tr><th></th><th>Name</th><th>Type</th><th>URL</th><th>References</th><th>Actions</th></tr></thead><tbody>${e.items.map((s) => `<tr><td><button class="expand ${this.expanded === s.id ? "open" : ""}" data-expand="${s.id}" aria-label="Show references for ${t(s.name)}">${b("chevron")}</button></td><td class="name">${t(s.name)}</td><td><span class="pill">${t(s.type)}</span></td><td class="url"><a href="${t(s.url)}" target="_blank" rel="noopener">${t(s.url)}</a></td><td><span class="pill ${s.hasReferences ? "use" : "empty"}">${b(s.hasReferences ? "link" : "media")}${s.hasReferences ? `${s.referenceCount} in use` : "Not in use"}</span></td><td class="actions-cell"><button class="icon-button danger" data-trash="${s.id}" data-name="${t(s.name)}" title="Move to trash" aria-label="Move ${t(s.name)} to trash">${b("trash")}</button></td></tr>${this.expanded === s.id ? `<tr><td colspan="6" class="refs" id="refs-${s.id}"><div class="reference-list">Loading references…</div></td></tr>` : ""}`).join("")}</tbody></table></div><div class="pager"><button id="prev" ${this.page === 1 ? "disabled" : ""}>Previous</button><span>Page ${this.page}</span><button id="next" ${n >= e.total ? "disabled" : ""}>Next</button><label>Rows <select id="size">${[25, 50, 100, 250].map((s) => `<option ${s === this.size ? "selected" : ""}>${s}</option>`).join("")}</select></label></div>` : `<p class="empty">${b("media")} No media items match the selected filters.</p>`, this.querySelectorAll("[data-expand]").forEach((s) => s.onclick = () => {
+    this.q("#status").innerHTML = `${b(a ? "check" : "warning")} ${a ? "Up to date" : "Refresh required"} · Last generated ${new Date(e.cache.generatedAt).toLocaleString()}`, this.q("#content").innerHTML = e.items.length ? `<p class="summary">Showing <strong>${i.toLocaleString()}–${n.toLocaleString()}</strong> of <strong>${e.total.toLocaleString()}</strong> media items</p><div class="table-wrap"><table><thead><tr><th></th><th>Name</th><th>Type</th><th>URL</th><th>References</th><th>Actions</th></tr></thead><tbody>${e.items.map((s) => `<tr><td><button class="expand ${this.expanded === s.id ? "open" : ""}" data-expand="${s.id}" aria-label="Show references for ${t(s.name)}">${b("chevron")}</button></td><td class="name">${t(s.name)}</td><td><span class="pill">${t(s.type)}</span></td><td class="url"><a href="${t(s.url)}" target="_blank" rel="noopener">${t(s.url)}</a></td><td><span class="pill ${s.hasReferences ? "use" : "empty"}">${b(s.hasReferences ? "link" : "media")}${s.hasReferences ? "In use" : "Not in use"}</span></td><td class="actions-cell"><button class="icon-button danger" data-trash="${s.id}" data-name="${t(s.name)}" title="Move to trash" aria-label="Move ${t(s.name)} to trash">${b("trash")}</button></td></tr>${this.expanded === s.id ? `<tr><td colspan="6" class="refs" id="refs-${s.id}"><div class="reference-list">Loading references…</div></td></tr>` : ""}`).join("")}</tbody></table></div><div class="pager"><button id="prev" ${this.page === 1 ? "disabled" : ""}>Previous</button><span>Page ${this.page}</span><button id="next" ${n >= e.total ? "disabled" : ""}>Next</button><label>Rows <select id="size">${[25, 50, 100, 250].map((s) => `<option ${s === this.size ? "selected" : ""}>${s}</option>`).join("")}</select></label></div>` : `<p class="empty">${b("media")} No media items match the selected filters.</p>`, this.querySelectorAll("[data-expand]").forEach((s) => s.onclick = () => {
       this.toggle(Number(s.dataset.expand));
     }), this.querySelectorAll("[data-trash]").forEach((s) => s.onclick = () => {
       this.trash(Number(s.dataset.trash), s.dataset.name || "media item");
@@ -857,7 +862,7 @@ class J extends ee(HTMLElement) {
     }
   }
   async export() {
-    const e = await z.post({ url: `${E}/export`, security: [{ scheme: "bearer", type: "http" }], headers: { "Content-Type": "application/json" }, bodySerializer: H.bodySerializer, body: { search: this.search, mediaType: this.type, hasReferences: this.refs === "" ? null : this.refs === "true", sortBy: this.sort, sortDirection: this.direction }, parseAs: "blob" });
+    const e = await z.post({ url: `${E}/export`, security: [{ scheme: "bearer", type: "http" }], headers: { "Content-Type": "application/json" }, bodySerializer: D.bodySerializer, body: { search: this.search, mediaType: this.type, hasReferences: this.refs === "" ? null : this.refs === "true", sortBy: this.sort, sortDirection: this.direction }, parseAs: "blob" });
     if (!e.response?.ok || !e.data) {
       alert("Unable to export the inventory.");
       return;
@@ -876,10 +881,10 @@ class J extends ee(HTMLElement) {
     });
   }
 }
-customElements.get("media-inventory-report") || customElements.define("media-inventory-report", J);
+customElements.get("media-inventory-report") || customElements.define("media-inventory-report", G);
 const Ue = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: J
+  default: G
 }, Symbol.toStringTag, { value: "Module" }));
 export {
   Be as manifests

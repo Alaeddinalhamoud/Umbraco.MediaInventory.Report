@@ -8,7 +8,7 @@ using Umbraco.MediaInventory.Report.Models;
 
 namespace Umbraco.MediaInventory.Report.Services;
 
-public sealed class MediaInventoryService(IMemoryCache cache, IMediaService mediaService, ITrackedReferencesService trackedReferencesService, ILogger logger, IHostEnvironment? hostEnvironment = null) : IMediaInventoryService
+public sealed class MediaInventoryService(IMemoryCache cache, IMediaService mediaService, IContentService contentService, ITrackedReferencesService trackedReferencesService, ILogger logger, IHostEnvironment? hostEnvironment = null) : IMediaInventoryService
 {
     private const string CacheKey = "media-inventory:overview";
     private static readonly TimeSpan SevenDays = TimeSpan.FromDays(7);
@@ -72,18 +72,72 @@ public sealed class MediaInventoryService(IMemoryCache cache, IMediaService medi
         return Task.FromResult(result);
     }
 
-    public Task<IReadOnlyList<MediaInventoryReferenceDto>> GetReferencesAsync(int mediaId, CancellationToken cancellationToken = default)
+    public async Task<IReadOnlyList<MediaInventoryReferenceDto>> GetReferencesAsync(int mediaId, CancellationToken cancellationToken = default)
     {
-        var item = _catalogue.FirstOrDefault(x => x.Id == mediaId);
+        GetOrCreateSnapshot();
+        if (!_catalogue.Any(item => item.Id == mediaId))
+            return Array.Empty<MediaInventoryReferenceDto>();
 
-        if (item is null)
-            return Task.FromResult<IReadOnlyList<MediaInventoryReferenceDto>>(Array.Empty<MediaInventoryReferenceDto>());
+        var media = mediaService.GetById(mediaId);
 
-        var references = item.ReferenceCount > 0
-            ? CreateReferenceSet(mediaId).Where(x => x.Id != 0).ToList()
-            : new List<MediaInventoryReferenceDto>();
+        if (media is null || media.Trashed)
+            return Array.Empty<MediaInventoryReferenceDto>();
 
-        return Task.FromResult<IReadOnlyList<MediaInventoryReferenceDto>>(references);
+        const int pageSize = 1_000;
+        long skip = 0;
+        var references = new List<MediaInventoryReferenceDto>();
+
+        do
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            // The dashboard summary uses a batched key lookup for speed.  The expanded
+            // panel must query the actual relations instead of inventing sample nodes.
+            var attempt = await trackedReferencesService.GetPagedRelationsForItemAsync(
+                media.Key, UmbracoObjectTypes.Media, skip, pageSize, filterMustBeIsDependency: true);
+            if (!attempt.Success || attempt.Result is null)
+                break;
+
+            var page = attempt.Result;
+            var relations = page.Items.ToList();
+
+            foreach (var relation in relations)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+
+                var content = contentService.GetById(relation.NodeKey);
+                if (content is not null)
+                {
+                    references.Add(new MediaInventoryReferenceDto
+                    {
+                        Id = content.Id,
+                        Name = content.Name ?? relation.NodeName ?? string.Empty,
+                        NodeType = "Content",
+                        Path = content.Path,
+                        // Umbraco 17 workspaces are addressed by the content key, not
+                        // by the legacy numeric /content/{id} route.
+                        Url = $"/umbraco/section/content/workspace/document/edit/{content.Key.ToString().ToLowerInvariant()}/invariant/view/content"
+                    });
+                    continue;
+                }
+
+                var relatedMedia = mediaService.GetById(relation.NodeKey);
+                references.Add(new MediaInventoryReferenceDto
+                {
+                    Id = relatedMedia?.Id ?? 0,
+                    Name = relatedMedia?.Name ?? relation.NodeName ?? string.Empty,
+                    NodeType = relatedMedia is null ? relation.NodeType ?? string.Empty : "Media",
+                    Path = relatedMedia?.Path ?? string.Empty,
+                    Url = relatedMedia is null ? string.Empty : $"/media/{relatedMedia.Id}"
+                });
+            }
+
+            skip += relations.Count;
+            if (relations.Count == 0 || skip >= page.Total)
+                break;
+        } while (true);
+
+        return references;
     }
 
     public Task<MediaInventoryRefreshStatus> TriggerRefreshAsync(CancellationToken cancellationToken = default)
@@ -576,26 +630,6 @@ public sealed class MediaInventoryService(IMemoryCache cache, IMediaService medi
         {
             return string.Empty;
         }
-    }
-
-    private static List<MediaInventoryReferenceDto> CreateReferenceSet(int mediaId)
-    {
-        var references = new List<MediaInventoryReferenceDto>();
-        var baseName = mediaId % 5 == 0 ? "Homepage" : "Content";
-
-        for (var i = 0; i < 5; i++)
-        {
-            references.Add(new MediaInventoryReferenceDto
-            {
-                Id = mediaId + i + 1,
-                Name = $"{baseName} {i + 1}",
-                NodeType = "Content",
-                Path = $"/root/{baseName}/{i + 1}",
-                Url = $"/content/{mediaId}-{i + 1}"
-            });
-        }
-
-        return references;
     }
 
     private static string EscapeCsv(string value)

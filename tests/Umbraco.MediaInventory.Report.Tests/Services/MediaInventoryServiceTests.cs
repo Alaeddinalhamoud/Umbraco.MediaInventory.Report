@@ -109,7 +109,7 @@ public sealed class MediaInventoryServiceTests
     {
         cache.Set("media-inventory:overview", new MediaInventorySnapshot { Items = items });
 
-        return new MediaInventoryService(cache, null!, null!, null!);
+        return new MediaInventoryService(cache, null!, null!, null!, null!);
     }
 
     private static List<MediaInventoryItemDto> CreateItems() =>

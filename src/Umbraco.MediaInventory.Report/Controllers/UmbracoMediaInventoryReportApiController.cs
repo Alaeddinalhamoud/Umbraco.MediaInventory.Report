@@ -1,6 +1,8 @@
 using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 using Umbraco.MediaInventory.Report.Models;
 using Umbraco.MediaInventory.Report.Services;
 
@@ -14,6 +16,19 @@ public class UmbracoMediaInventoryReportApiController(IMediaInventoryService med
     [HttpGet("ping")]
     [ProducesResponseType<string>(StatusCodes.Status200OK)]
     public string Ping() => "Pong";
+
+    [HttpGet("package/version")]
+    [AllowAnonymous]
+    [ProducesResponseType<string>(StatusCodes.Status200OK)]
+    public string GetPackageVersion()
+    {
+        var version = typeof(UmbracoMediaInventoryReportApiController).Assembly
+            .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion
+        ?? typeof(UmbracoMediaInventoryReportApiController).Assembly.GetName().Version?.ToString()
+        ?? "unknown";
+
+        return version.Split('+', 2)[0];
+    }
 
     [HttpGet("media-inventory")]
     [ProducesResponseType(typeof(MediaInventoryPageResult), StatusCodes.Status200OK)]

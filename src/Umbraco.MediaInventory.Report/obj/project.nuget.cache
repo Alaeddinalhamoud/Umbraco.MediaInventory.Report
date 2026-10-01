@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6C6kIe+nuhE=",
+  "dgSpecHash": "ZxZZDYKr+Qg=",
   "success": true,
   "projectFilePath": "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
   "expectedPackageFiles": [
@@ -159,15 +159,5 @@
     "C:\\Users\\AAlhamoud\\.nuget\\packages\\umbraco.cms.web.common\\17.7.0\\umbraco.cms.web.common.17.7.0.nupkg.sha512",
     "C:\\Users\\AAlhamoud\\.nuget\\packages\\umbraco.cms.web.website\\17.7.0\\umbraco.cms.web.website.17.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1507",
-      "level": "Warning",
-      "message": "There are 2 package sources defined in your configuration. When using central package management, map your package sources with package source mapping (https://aka.ms/nuget-package-source-mapping) or specify a single package source. The following sources are defined: nuget.org, 3C Digital",
-      "projectPath": "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\temp\\Git\\Umbraco.MediaInventory.Report\\src\\Umbraco.MediaInventory.Report\\Umbraco.MediaInventory.Report.csproj",
-      "targetGraphs": []
-    }
-  ]
+  "logs": []
 }
